@@ -1,7 +1,7 @@
 'use client';
 
-import React, { forwardRef, ReactNode } from 'react';
-import { IconButton, Button, Icon, Flex, Text } from '.';
+import React, {forwardRef, ReactNode} from 'react';
+import {Button, Flex, Icon, IconButton, Text} from '.';
 
 interface FeedbackProps {
     variant?: 'info' | 'danger' | 'warning' | 'success';
@@ -17,7 +17,8 @@ interface FeedbackProps {
 }
 
 const variantIconMap: {
-    [key in 'info' | 'danger' | 'warning' | 'success']: string } = {
+    [key in 'info' | 'danger' | 'warning' | 'success']: string
+} = {
     info: 'infoCircle',
     danger: 'errorCircle',
     warning: 'warningTriangle',
@@ -25,18 +26,18 @@ const variantIconMap: {
 };
 
 const Feedback = forwardRef<HTMLDivElement, FeedbackProps>(({
-    variant = 'info',
-    icon,
-    title,
-    description,
-    showCloseButton = false,
-    onClose,
-    actionButtonProps,
-    className,
-    style,
-    children,
-    ...props
-}, ref) => {
+                                                                variant = 'info',
+                                                                icon,
+                                                                title,
+                                                                description,
+                                                                showCloseButton = false,
+                                                                onClose,
+                                                                actionButtonProps,
+                                                                className,
+                                                                style,
+                                                                children,
+                                                                ...props
+                                                            }, ref) => {
     return (
         <Flex
             fillWidth
@@ -129,4 +130,4 @@ const Feedback = forwardRef<HTMLDivElement, FeedbackProps>(({
 });
 
 Feedback.displayName = 'Feedback';
-export { Feedback };
+export {Feedback};

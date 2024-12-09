@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState, useEffect, useRef, ReactNode } from 'react';
+import React, {ReactNode, useEffect, useRef, useState} from 'react';
 
 import '@/once-ui/modules/code/CodeHighlight.css';
 import styles from '@/once-ui/modules/code/CodeBlock.module.scss';
 
-import { Flex, Button, IconButton, DropdownWrapper } from '@/once-ui/components';
+import {Button, DropdownWrapper, Flex, IconButton} from '@/once-ui/components';
 
 import Prism from 'prismjs';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
@@ -31,19 +31,19 @@ type CodeBlockProps = {
 };
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
-    highlight,
-    codeInstances = [],
-    codePreview,
-    copyButton = true,
-    compact = false,
-    className,
-    style,
-}) => {
+                                                 highlight,
+                                                 codeInstances = [],
+                                                 codePreview,
+                                                 copyButton = true,
+                                                 compact = false,
+                                                 className,
+                                                 style,
+                                             }) => {
     const codeRef = useRef<HTMLElement>(null);
     const preRef = useRef<HTMLPreElement>(null);
     const [selectedInstance, setSelectedInstance] = useState(0);
 
-    const { code, language, label } = codeInstances[selectedInstance] || { code: '', language: '', label: 'Select Code' };
+    const {code, language, label} = codeInstances[selectedInstance] || {code: '', language: '', label: 'Select Code'};
 
     const [copyIcon, setCopyIcon] = useState<string>('clipboard');
 
@@ -113,7 +113,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                             </DropdownWrapper>
                         </Flex>
                     ) : <div/>}
-                    {(copyButton && !compact) && 
+                    {(copyButton && !compact) &&
                         <IconButton
                             tooltip="Copy"
                             variant="secondary"
@@ -140,8 +140,8 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                 <Flex
                     style={{
                         borderTop: (!compact && codePreview) ?
-                        '1px solid var(--neutral-border-medium)' : 
-                        'none'
+                            '1px solid var(--neutral-border-medium)' :
+                            'none'
                     }}
                     fillWidth padding="8"
                     position="relative" overflowY="auto">
@@ -178,4 +178,4 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     );
 };
 
-export { CodeBlock };
+export {CodeBlock};

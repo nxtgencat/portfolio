@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, forwardRef } from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 import styles from './GlitchFx.module.scss';
 
 interface GlitchFxProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -14,15 +14,15 @@ interface GlitchFxProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const GlitchFx = forwardRef<HTMLDivElement, GlitchFxProps>(({
-    children,
-    speed = 'medium',
-    interval = 2500,
-    trigger = 'instant',
-    continuous = true,
-    style,
-    className,
-    ...rest
-}, ref) => {
+                                                                children,
+                                                                speed = 'medium',
+                                                                interval = 2500,
+                                                                trigger = 'instant',
+                                                                continuous = true,
+                                                                style,
+                                                                className,
+                                                                ...rest
+                                                            }, ref) => {
     const [isGlitching, setIsGlitching] = useState(continuous || trigger === 'instant');
 
     useEffect(() => {
@@ -85,4 +85,4 @@ const GlitchFx = forwardRef<HTMLDivElement, GlitchFxProps>(({
 });
 
 GlitchFx.displayName = 'GlitchFx';
-export { GlitchFx };
+export {GlitchFx};

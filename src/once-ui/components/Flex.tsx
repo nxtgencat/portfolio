@@ -1,76 +1,84 @@
 'use client';
 
-import React, { CSSProperties, forwardRef } from 'react';
+import React, {CSSProperties, forwardRef} from 'react';
 import classNames from 'classnames';
 
-import { FlexProps, SpacingProps, SizeProps, StyleProps, CommonProps, DisplayProps, ConditionalProps } from '../interfaces';
-import { TextVariant, SpacingToken, ColorScheme, ColorWeight } from '../types';
+import {
+    CommonProps,
+    ConditionalProps,
+    DisplayProps,
+    FlexProps,
+    SizeProps,
+    SpacingProps,
+    StyleProps
+} from '../interfaces';
+import {ColorScheme, ColorWeight, SpacingToken, TextVariant} from '../types';
 
-interface ComponentProps extends 
-    FlexProps, 
-    SpacingProps, 
-    SizeProps, 
-    StyleProps, 
-    CommonProps, 
-    DisplayProps, 
-    ConditionalProps {}
+interface ComponentProps extends FlexProps,
+    SpacingProps,
+    SizeProps,
+    StyleProps,
+    CommonProps,
+    DisplayProps,
+    ConditionalProps {
+}
 
 const Flex = forwardRef<HTMLDivElement, ComponentProps>(({
-    as: Component = 'div',
-    direction,
-    justifyContent,
-    alignItems,
-    wrap = false,
-    flex,
-    textVariant,
-    textSize,
-    textWeight,
-    onBackground,
-    onSolid,
-    align,
-    padding,
-    paddingLeft,
-    paddingRight,
-    paddingTop,
-    paddingBottom,
-    paddingX,
-    paddingY,
-    margin,
-    marginLeft,
-    marginRight,
-    marginTop,
-    marginBottom,
-    marginX,
-    marginY,
-    gap,
-    position,
-    width,
-    height,
-    maxWidth,
-    minWidth,
-    minHeight,
-    maxHeight,
-    fillWidth = false,
-    fillHeight = false,
-    hide,
-    show,
-    tabletDirection,
-    mobileDirection,
-    background,
-    solid,
-    alpha,
-    border,
-    borderStyle,
-    radius,
-    overflowX,
-    overflowY,
-    zIndex,
-    shadow,
-    className,
-    style,
-    children,
-    ...rest
-}, ref) => {
+                                                             as: Component = 'div',
+                                                             direction,
+                                                             justifyContent,
+                                                             alignItems,
+                                                             wrap = false,
+                                                             flex,
+                                                             textVariant,
+                                                             textSize,
+                                                             textWeight,
+                                                             onBackground,
+                                                             onSolid,
+                                                             align,
+                                                             padding,
+                                                             paddingLeft,
+                                                             paddingRight,
+                                                             paddingTop,
+                                                             paddingBottom,
+                                                             paddingX,
+                                                             paddingY,
+                                                             margin,
+                                                             marginLeft,
+                                                             marginRight,
+                                                             marginTop,
+                                                             marginBottom,
+                                                             marginX,
+                                                             marginY,
+                                                             gap,
+                                                             position,
+                                                             width,
+                                                             height,
+                                                             maxWidth,
+                                                             minWidth,
+                                                             minHeight,
+                                                             maxHeight,
+                                                             fillWidth = false,
+                                                             fillHeight = false,
+                                                             hide,
+                                                             show,
+                                                             tabletDirection,
+                                                             mobileDirection,
+                                                             background,
+                                                             solid,
+                                                             alpha,
+                                                             border,
+                                                             borderStyle,
+                                                             radius,
+                                                             overflowX,
+                                                             overflowY,
+                                                             zIndex,
+                                                             shadow,
+                                                             className,
+                                                             style,
+                                                             children,
+                                                             ...rest
+                                                         }, ref) => {
     const generateClassName = (prefix: string, token: SpacingToken | undefined) => {
         return token ? `${prefix}-${token}` : undefined;
     };
@@ -196,4 +204,4 @@ const Flex = forwardRef<HTMLDivElement, ComponentProps>(({
 
 Flex.displayName = 'Flex';
 
-export { Flex };
+export {Flex};

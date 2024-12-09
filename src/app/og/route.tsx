@@ -1,6 +1,6 @@
-import { ImageResponse } from 'next/og'
-import { baseURL, renderContent } from '@/app/resources';
-import { getTranslations } from 'next-intl/server';
+import {ImageResponse} from 'next/og'
+import {baseURL, renderContent} from '@/app/resources';
+import {getTranslations} from 'next-intl/server';
 
 export const runtime = 'edge';
 
@@ -13,7 +13,7 @@ export async function GET(request: Request) {
     const fontData = await font;
 
     const t = await getTranslations();
-    const { person } = renderContent(t);
+    const {person} = renderContent(t);
 
     return new ImageResponse(
         (
@@ -52,12 +52,12 @@ export async function GET(request: Request) {
                             gap: '5rem'
                         }}>
                         <img src={'https://' + baseURL + person.avatar}
-                            style={{
-                                width: '12rem',
-                                height: '12rem',
-                                objectFit: 'cover',
-                                borderRadius: '100%',
-                            }}/>
+                             style={{
+                                 width: '12rem',
+                                 height: '12rem',
+                                 objectFit: 'cover',
+                                 borderRadius: '100%',
+                             }}/>
                         <div
                             style={{
                                 display: 'flex',
@@ -97,7 +97,7 @@ export async function GET(request: Request) {
                     data: fontData,
                     style: 'normal',
                 },
-              ],
+            ],
         }
     )
 }

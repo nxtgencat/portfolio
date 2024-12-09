@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import {useEffect, useRef} from 'react';
 import classNames from 'classnames';
 import styles from './Arrow.module.scss';
-import { Flex } from '.';
+import {Flex} from '.';
 
 interface ArrowProps {
     trigger: string;
@@ -14,12 +14,12 @@ interface ArrowProps {
 }
 
 const Arrow: React.FC<ArrowProps> = ({
-    trigger,
-    scale = 0.8,
-    color = 'onBackground',
-    style,
-    className
-}) => {
+                                         trigger,
+                                         scale = 0.8,
+                                         color = 'onBackground',
+                                         style,
+                                         className
+                                     }) => {
     const arrowContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -47,10 +47,10 @@ const Arrow: React.FC<ArrowProps> = ({
     return (
         <Flex>
             <Flex ref={arrowContainerRef}
-                position="relative" marginLeft="4"
-                alignItems="center" justifyContent="flex-end"
-                className={classNames(styles.arrowContainer, className)}
-                style={{transform: `scale(${scale})`, ...style}}>
+                  position="relative" marginLeft="4"
+                  alignItems="center" justifyContent="flex-end"
+                  className={classNames(styles.arrowContainer, className)}
+                  style={{transform: `scale(${scale})`, ...style}}>
                 <Flex className={classNames(styles.arrow, styles[color])} height={0.1}/>
                 <Flex className={classNames(styles.arrowHead, styles[color])} height={0.0875}/>
                 <Flex className={classNames(styles.arrowHead, styles[color])} height={0.0875}/>
@@ -60,4 +60,4 @@ const Arrow: React.FC<ArrowProps> = ({
 };
 
 Arrow.displayName = 'Arrow';
-export { Arrow };
+export {Arrow};

@@ -1,9 +1,9 @@
 'use client';
 
-import React, { forwardRef } from 'react';
+import React, {forwardRef} from 'react';
 import classNames from 'classnames';
 
-import { Flex, Text, Skeleton, Tag, TagProps, Avatar, AvatarProps } from '.';
+import {Avatar, AvatarProps, Flex, Skeleton, Tag, TagProps, Text} from '.';
 
 interface UserProps {
     name?: string;
@@ -16,16 +16,16 @@ interface UserProps {
     className?: string;
 }
 
-const User = forwardRef<HTMLDivElement, UserProps>(({ 
-    name, 
-    children,
-    subline, 
-    tagProps = {}, 
-    loading = false, 
-    avatarProps = {},
-    className
-}, ref) => {
-    const { src, value, empty, ...restAvatarProps } = avatarProps;
+const User = forwardRef<HTMLDivElement, UserProps>(({
+                                                        name,
+                                                        children,
+                                                        subline,
+                                                        tagProps = {},
+                                                        loading = false,
+                                                        avatarProps = {},
+                                                        className
+                                                    }, ref) => {
+    const {src, value, empty, ...restAvatarProps} = avatarProps;
     const isEmpty = empty || (!src && !value);
 
     return (
@@ -34,12 +34,12 @@ const User = forwardRef<HTMLDivElement, UserProps>(({
             alignItems="center"
             gap="8"
             className={classNames(className)}>
-            <Avatar 
+            <Avatar
                 size="m"
-                src={src} 
-                value={value} 
+                src={src}
+                value={value}
                 empty={isEmpty}
-                loading={loading} 
+                loading={loading}
                 {...restAvatarProps}/>
             {children}
             {name && (
@@ -55,9 +55,9 @@ const User = forwardRef<HTMLDivElement, UserProps>(({
                                 width="xl"
                                 height="m"
                                 shape="line"
-                                aria-label="Loading name" />
+                                aria-label="Loading name"/>
                         </Flex>
-                    ) : ( 
+                    ) : (
                         <Flex
                             gap="8"
                             alignItems="center">
@@ -82,7 +82,7 @@ const User = forwardRef<HTMLDivElement, UserProps>(({
                                 width="l"
                                 height="xs"
                                 shape="line"
-                                aria-label="Loading subline" />
+                                aria-label="Loading subline"/>
                         </Flex>
                     ) : (
                         <Text
@@ -100,5 +100,5 @@ const User = forwardRef<HTMLDivElement, UserProps>(({
 
 User.displayName = 'User';
 
-export { User };
-export type { UserProps };
+export {User};
+export type {UserProps};

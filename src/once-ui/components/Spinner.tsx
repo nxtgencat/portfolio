@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, {forwardRef} from 'react';
 import classNames from 'classnames';
 
 import styles from './Spinner.module.scss';
@@ -11,11 +11,11 @@ interface SpinnerProps {
 }
 
 const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({
-    size = 'm',
-    className,
-    style,
-    ariaLabel = 'Loading'
-}, ref) => {
+                                                              size = 'm',
+                                                              className,
+                                                              style,
+                                                              ariaLabel = 'Loading'
+                                                          }, ref) => {
     return (
         <div
             ref={ref}
@@ -23,11 +23,11 @@ const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({
             style={style}
             role="status"
             aria-label={ariaLabel}>
-            <div className={styles.spinner} />
+            <div className={styles.spinner}/>
         </div>
     );
 });
 
 Spinner.displayName = 'Spinner';
 
-export { Spinner };
+export {Spinner};

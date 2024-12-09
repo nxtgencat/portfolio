@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useEffect, useState, forwardRef } from 'react';
-import { IconButton, Icon, Flex, Text } from '.';
+import React, {forwardRef, useEffect, useState} from 'react';
+import {Flex, Icon, IconButton, Text} from '.';
 import classNames from 'classnames';
 import styles from './Toast.module.scss';
 
@@ -20,13 +20,13 @@ const iconMap = {
 };
 
 const Toast = forwardRef<HTMLDivElement, ToastProps>(({
-    variant,
-    className,
-    icon = true,
-    onClose,
-    action, 
-    children
-}, ref) => {
+                                                          variant,
+                                                          className,
+                                                          icon = true,
+                                                          onClose,
+                                                          action,
+                                                          children
+                                                      }, ref) => {
     const [visible, setVisible] = useState(true);
 
     useEffect(() => {
@@ -68,7 +68,7 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(({
                 )}
                 <Text
                     variant="body-default-s"
-                    style={{ width: '100%' }}
+                    style={{width: '100%'}}
                     as="div">
                     {children}
                 </Text>
@@ -93,4 +93,4 @@ const Toast = forwardRef<HTMLDivElement, ToastProps>(({
 
 Toast.displayName = 'Toast';
 
-export { Toast };
+export {Toast};

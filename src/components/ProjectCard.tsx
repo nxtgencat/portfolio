@@ -1,8 +1,8 @@
 "use client";
 
-import { AvatarGroup, Flex, Heading, RevealFx, SmartImage, SmartLink, Text } from "@/once-ui/components";
-import { useEffect, useState } from "react";
-import { useTranslations } from 'next-intl';
+import {AvatarGroup, Flex, Heading, RevealFx, SmartImage, SmartLink, Text} from "@/once-ui/components";
+import {useEffect, useState} from "react";
+import {useTranslations} from 'next-intl';
 
 interface ProjectCardProps {
     href: string;
@@ -14,13 +14,13 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
-    href,
-    images = [],
-    title,
-    content,
-    description,
-    avatars
-}) => {
+                                                            href,
+                                                            images = [],
+                                                            title,
+                                                            content,
+                                                            description,
+                                                            avatars
+                                                        }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -35,7 +35,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     }, []);
 
     const handleImageClick = () => {
-        if(images.length > 1) {
+        if (images.length > 1) {
             setIsTransitioning(false);
             const nextIndex = (activeIndex + 1) % images.length;
             handleControlClick(nextIndex);
@@ -87,8 +87,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                             key={index}
                             onClick={() => handleControlClick(index)}
                             style={{
-                                background: activeIndex === index 
-                                    ? 'var(--neutral-on-background-strong)' 
+                                background: activeIndex === index
+                                    ? 'var(--neutral-on-background-strong)'
                                     : 'var(--neutral-alpha-medium)',
                                 cursor: 'pointer',
                                 transition: 'background 0.3s ease',
@@ -136,10 +136,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                 suffixIcon="chevronRight"
                                 style={{margin: '0', width: 'fit-content'}}
                                 href={href}>
-                                    <Text
-                                        variant="body-default-s">
-                                       {t("projectCard.label")}
-                                    </Text>
+                                <Text
+                                    variant="body-default-s">
+                                    {t("projectCard.label")}
+                                </Text>
                             </SmartLink>
                         )}
                     </Flex>

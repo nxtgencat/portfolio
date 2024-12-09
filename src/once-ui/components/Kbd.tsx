@@ -1,8 +1,8 @@
 'use client';
 
-import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
+import React, {forwardRef, HTMLAttributes, ReactNode} from 'react';
 
-import { Text } from '.';
+import {Text} from '.';
 import classNames from 'classnames';
 import styles from './Kbd.module.scss';
 
@@ -14,12 +14,12 @@ interface KbdProps extends HTMLAttributes<HTMLElement> {
 }
 
 const Kbd = forwardRef<HTMLElement, KbdProps>(({
-    label,
-    children,
-    className,
-    style,
-    ...props
-}, ref) => (
+                                                   label,
+                                                   children,
+                                                   className,
+                                                   style,
+                                                   ...props
+                                               }, ref) => (
     <kbd
         ref={ref}
         className={classNames(styles.kbd, className)}
@@ -35,5 +35,5 @@ const Kbd = forwardRef<HTMLElement, KbdProps>(({
 
 Kbd.displayName = 'Kbd';
 
-export { Kbd };
-export type { KbdProps };
+export {Kbd};
+export type {KbdProps};

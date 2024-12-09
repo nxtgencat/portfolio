@@ -1,6 +1,6 @@
 'use client';
 
-import React, { forwardRef } from 'react';
+import React, {forwardRef} from 'react';
 import classNames from 'classnames';
 import styles from './StatusIndicator.module.scss';
 
@@ -13,12 +13,12 @@ interface StatusIndicatorProps {
 }
 
 const StatusIndicator = forwardRef<HTMLDivElement, StatusIndicatorProps>(({
-    size,
-    color,
-    className,
-    style,
-    ariaLabel = `${color} status indicator`
-}, ref) => {
+                                                                              size,
+                                                                              color,
+                                                                              className,
+                                                                              style,
+                                                                              ariaLabel = `${color} status indicator`
+                                                                          }, ref) => {
     return (
         <div
             ref={ref}
@@ -30,4 +30,4 @@ const StatusIndicator = forwardRef<HTMLDivElement, StatusIndicatorProps>(({
 
 StatusIndicator.displayName = 'StatusIndicator';
 
-export { StatusIndicator };
+export {StatusIndicator};

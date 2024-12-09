@@ -1,9 +1,9 @@
 'use client';
 
-import React, { forwardRef, ReactNode } from 'react';
+import React, {forwardRef, ReactNode} from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { Icon } from '.';
+import {Icon} from '.';
 
 interface SmartLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     href: string;
@@ -17,25 +17,25 @@ interface SmartLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     children: ReactNode;
 }
 
-const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(({ 
-        href,
-        prefixIcon,
-        suffixIcon,
-        iconSize='xs',
-        style,
-        className,
-        selected,
-        unstyled = false,
-        children,
-        ...props
-    }, ref) => {
+const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(({
+                                                                     href,
+                                                                     prefixIcon,
+                                                                     suffixIcon,
+                                                                     iconSize = 'xs',
+                                                                     style,
+                                                                     className,
+                                                                     selected,
+                                                                     unstyled = false,
+                                                                     children,
+                                                                     ...props
+                                                                 }, ref) => {
         const isExternal = href.startsWith('http') || href.startsWith('//');
 
         const content = (
             <>
-                {prefixIcon && <Icon name={prefixIcon} size={iconSize} />}
+                {prefixIcon && <Icon name={prefixIcon} size={iconSize}/>}
                 {children}
-                {suffixIcon && <Icon name={suffixIcon} size={iconSize} />}
+                {suffixIcon && <Icon name={suffixIcon} size={iconSize}/>}
             </>
         );
 
@@ -49,9 +49,9 @@ const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(({
                 alignItems: 'center',
                 gap: 'var(--static-space-8)',
                 borderRadius: 'var(--radius-s)',
-                ...(selected && { textDecoration: 'underline' }),
+                ...(selected && {textDecoration: 'underline'}),
                 ...style
-            } : { 
+            } : {
                 textDecoration: 'none',
                 color: 'inherit',
                 ...style
@@ -84,4 +84,4 @@ const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(({
 
 SmartLink.displayName = 'SmartLink';
 
-export { SmartLink };
+export {SmartLink};

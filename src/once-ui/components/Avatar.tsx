@@ -1,8 +1,8 @@
 'use client';
 
-import React, { forwardRef } from 'react';
+import React, {forwardRef} from 'react';
 
-import { Skeleton, Icon, Text, StatusIndicator, Flex, SmartImage } from '.';
+import {Flex, Icon, Skeleton, SmartImage, StatusIndicator, Text} from '.';
 import styles from './Avatar.module.scss';
 
 interface AvatarProps {
@@ -35,15 +35,15 @@ const statusIndicatorSizeMapping: Record<'xs' | 's' | 'm' | 'l' | 'xl', 's' | 'm
 };
 
 const Avatar: React.FC<AvatarProps> = forwardRef<HTMLDivElement, AvatarProps>(({
-    size = 'm',
-    value,
-    src,
-    loading,
-    empty,
-    statusIndicator,
-    style,
-    className
-}, ref) => {
+                                                                                   size = 'm',
+                                                                                   value,
+                                                                                   src,
+                                                                                   loading,
+                                                                                   empty,
+                                                                                   statusIndicator,
+                                                                                   style,
+                                                                                   className
+                                                                               }, ref) => {
     const isEmpty = empty || (!src && !value);
 
     if (value && src) {
@@ -124,5 +124,5 @@ const Avatar: React.FC<AvatarProps> = forwardRef<HTMLDivElement, AvatarProps>(({
 
 Avatar.displayName = 'Avatar';
 
-export { Avatar };
-export type { AvatarProps };
+export {Avatar};
+export type {AvatarProps};

@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useRef, useEffect, ReactNode, forwardRef, useImperativeHandle } from 'react';
-import { useFloating, shift, offset, flip, size, autoUpdate } from '@floating-ui/react-dom';
-import { Flex, Dropdown, DropdownProps, DropdownOptions } from '.';
+import React, {forwardRef, ReactNode, useEffect, useImperativeHandle, useRef, useState} from 'react';
+import {autoUpdate, flip, offset, shift, size, useFloating} from '@floating-ui/react-dom';
+import {Dropdown, DropdownOptions, DropdownProps, Flex} from '.';
 import styles from './Select.module.scss';
 import classNames from 'classnames';
 
@@ -17,14 +17,14 @@ interface DropdownWrapperProps {
 }
 
 const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(({
-    children,
-    dropdownOptions,
-    dropdownProps = {},
-    selectedOption,
-    style,
-    className,
-    renderCustomDropdownContent,
-}, ref) => {
+                                                                              children,
+                                                                              dropdownOptions,
+                                                                              dropdownProps = {},
+                                                                              selectedOption,
+                                                                              style,
+                                                                              className,
+                                                                              renderCustomDropdownContent,
+                                                                          }, ref) => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -42,7 +42,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(({
             flip(),
             shift(),
             size({
-                apply({ availableWidth, availableHeight, elements }) {
+                apply({availableWidth, availableHeight, elements}) {
                     Object.assign(elements.floating.style, {
                         maxWidth: `${availableWidth}px`,
                         maxHeight: `${availableHeight}px`,
@@ -64,11 +64,11 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(({
     useEffect(() => {
         if (isDropdownOpen) {
             update();
-            
+
             if (dropdownRef.current && selectedOption) {
                 const selectedElement = dropdownRef.current.querySelector(`[data-value="${selectedOption}"]`);
                 if (selectedElement) {
-                    selectedElement.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                    selectedElement.scrollIntoView({block: 'nearest', behavior: 'smooth'});
                 }
             }
         }
@@ -103,7 +103,8 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(({
     };
 
     const {
-        onOptionSelect = () => {},
+        onOptionSelect = () => {
+        },
         ...restDropdownProps
     } = dropdownProps;
 
@@ -158,4 +159,4 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(({
 
 DropdownWrapper.displayName = 'DropdownWrapper';
 
-export { DropdownWrapper };
+export {DropdownWrapper};

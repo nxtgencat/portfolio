@@ -1,7 +1,7 @@
 'use client';
 
-import React, { forwardRef } from 'react';
-import { Arrow, Flex, Icon, SmartLink, Text } from '.';
+import React, {forwardRef} from 'react';
+import {Arrow, Flex, Icon, SmartLink, Text} from '.';
 
 import styles from './Badge.module.scss'
 import classNames from 'classnames';
@@ -18,16 +18,16 @@ interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Badge = forwardRef<HTMLDivElement | HTMLAnchorElement, BadgeProps>(({
-    title,
-    icon,
-    arrow = true,
-    children,
-    href,
-    effect = true,
-    style,
-    className,
-    ...props
-}, ref) => {
+                                                                              title,
+                                                                              icon,
+                                                                              arrow = true,
+                                                                              children,
+                                                                              href,
+                                                                              effect = true,
+                                                                              style,
+                                                                              className,
+                                                                              ...props
+                                                                          }, ref) => {
     const commonProps = {
         style,
         className,
@@ -38,11 +38,11 @@ const Badge = forwardRef<HTMLDivElement | HTMLAnchorElement, BadgeProps>(({
                 className={classNames(styles.badge, effect && styles.animation)}
                 alignItems="center"
                 radius="full" background="neutral-weak" shadow="l">
-                { icon && (
+                {icon && (
                     <Icon className="mr-8"
-                        size="s"
-                        name={icon}
-                        onBackground="brand-medium"/>
+                          size="s"
+                          name={icon}
+                          onBackground="brand-medium"/>
                 )}
                 {title && (
                     <Text
@@ -52,7 +52,7 @@ const Badge = forwardRef<HTMLDivElement | HTMLAnchorElement, BadgeProps>(({
                     </Text>
                 )}
                 {children}
-                { arrow && (
+                {arrow && (
                     <Arrow trigger="#badge"/>
                 )}
             </Flex>
@@ -82,4 +82,4 @@ const Badge = forwardRef<HTMLDivElement | HTMLAnchorElement, BadgeProps>(({
 });
 
 Badge.displayName = 'Badge';
-export { Badge };
+export {Badge};

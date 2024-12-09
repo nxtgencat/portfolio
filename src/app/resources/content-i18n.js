@@ -1,15 +1,13 @@
-import { InlineCode } from "@/once-ui/components";
-
 const createI18nContent = (t) => {
     const person = {
         firstName: 'Selene',
-        lastName:  'Yu',
+        lastName: 'Yu',
         get name() {
             return `${this.firstName} ${this.lastName}`;
         },
-        role:      t("person.role"),
-        avatar:    '/images/avatar.jpg',
-        location:  'Asia/Jakarta',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+        role: t("person.role"),
+        avatar: '/images/avatar.jpg',
+        location: 'Asia/Jakarta',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
         languages: ['English', 'Bahasa']  // optional: Leave the array empty if you don't want to display languages
     }
 
@@ -95,7 +93,7 @@ const createI18nContent = (t) => {
                     timeframe: t("about.work.experiences.Creativ3.timeframe"),
                     role: t("about.work.experiences.Creativ3.role"),
                     achievements: t("about.work.experiences.Creativ3.achievements").split(";"),
-                    images: [ ]
+                    images: []
                 }
             ]
         },
@@ -172,78 +170,7 @@ const createI18nContent = (t) => {
         title: t("gallery.title"),
         description: t("gallery.description", {name: person.name}),
         // Images from https://pexels.com
-        images: [
-            {
-                src: '/images/gallery/img-01.jpg',
-                alt: 'image',
-                orientation: 'vertical'
-            },
-            {
-                src: '/images/gallery/img-02.jpg',
-                alt: 'image',
-                orientation: 'horizontal'
-            },
-            { 
-                src: '/images/gallery/img-03.jpg',
-                alt: 'image',
-                orientation: 'vertical'
-            },
-            { 
-                src: '/images/gallery/img-04.jpg',
-                alt: 'image',
-                orientation: 'horizontal'
-            },
-            {
-                src: '/images/gallery/img-05.jpg',
-                alt: 'image',
-                orientation: 'horizontal'
-            },
-            {
-                src: '/images/gallery/img-06.jpg',
-                alt: 'image',
-                orientation: 'vertical'
-            },
-            {
-                src: '/images/gallery/img-07.jpg',
-                alt: 'image',
-                orientation: 'horizontal'
-            },
-            {
-                src: '/images/gallery/img-08.jpg',
-                alt: 'image',
-                orientation: 'vertical'
-            },
-            {
-                src: '/images/gallery/img-09.jpg',
-                alt: 'image',
-                orientation: 'horizontal'
-            },
-            {
-                src: '/images/gallery/img-10.jpg',
-                alt: 'image',
-                orientation: 'horizontal'
-            },
-            { 
-                src: '/images/gallery/img-11.jpg',
-                alt: 'image',
-                orientation: 'vertical'
-            },
-            {
-                src: '/images/gallery/img-12.jpg',
-                alt: 'image',
-                orientation: 'horizontal'
-            },
-            {
-                src: '/images/gallery/img-13.jpg',
-                alt: 'image',
-                orientation: 'horizontal'
-            },
-            { 
-                src: '/images/gallery/img-14.jpg',
-                alt: 'image',
-                orientation: 'horizontal'
-            },
-        ]
+        images: []
     }
     return {
         person,
@@ -257,4 +184,4 @@ const createI18nContent = (t) => {
     }
 };
 
-export { createI18nContent };
+export {createI18nContent};

@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, forwardRef, TextareaHTMLAttributes } from 'react';
+import React, {forwardRef, TextareaHTMLAttributes, useEffect, useState} from 'react';
 import classNames from 'classnames';
-import { Flex, Text } from '.';
+import {Flex, Text} from '.';
 import styles from './Input.module.scss';
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -20,22 +20,22 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 }
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
-    id,
-    label,
-    lines = 3,
-    error,
-    description,
-    radius,
-    className,
-    hasPrefix,
-    hasSuffix,
-    labelAsPlaceholder = false,
-    resize = 'vertical',
-    children,
-    onFocus,
-    onBlur,
-    ...props
-}, ref) => {
+                                                                     id,
+                                                                     label,
+                                                                     lines = 3,
+                                                                     error,
+                                                                     description,
+                                                                     radius,
+                                                                     className,
+                                                                     hasPrefix,
+                                                                     hasSuffix,
+                                                                     labelAsPlaceholder = false,
+                                                                     resize = 'vertical',
+                                                                     children,
+                                                                     onFocus,
+                                                                     onBlur,
+                                                                     ...props
+                                                                 }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFilled, setIsFilled] = useState(!!props.value);
 
@@ -69,10 +69,10 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
     });
 
     return (
-        <div className={classNames(styles.wrapper, className, { [styles.error]: error })}>
-            <div className={classNames(styles.base, styles.textareaBase)} 
-                style={{borderRadius: radius}}>
-                { hasPrefix && (
+        <div className={classNames(styles.wrapper, className, {[styles.error]: error})}>
+            <div className={classNames(styles.base, styles.textareaBase)}
+                 style={{borderRadius: radius}}>
+                {hasPrefix && (
                     <Flex
                         paddingLeft="12"
                         className={styles.prefix}>
@@ -97,7 +97,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
                             minHeight: 'var(--static-space-56)'
                         }}
                     />
-                    { !labelAsPlaceholder && (
+                    {!labelAsPlaceholder && (
                         <Text
                             as="label"
                             variant="label-default-m"
@@ -108,13 +108,13 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
                             {label}
                         </Text>
                     )}
-                    { children && (
+                    {children && (
                         <div className={styles.children}>
                             {children}
                         </div>
                     )}
                 </div>
-                { hasSuffix && (
+                {hasSuffix && (
                     <Flex
                         paddingRight="12"
                         className={styles.suffix}>
@@ -122,7 +122,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
                     </Flex>
                 )}
             </div>
-            { error && (
+            {error && (
                 <Flex paddingX="16">
                     <Text
                         as="span"
@@ -133,7 +133,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
                     </Text>
                 </Flex>
             )}
-            { description && (
+            {description && (
                 <Flex paddingX="16">
                     <Text
                         as="span"
@@ -150,5 +150,5 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({
 
 Textarea.displayName = "Textarea";
 
-export { Textarea };
-export type { TextareaProps };
+export {Textarea};
+export type {TextareaProps};

@@ -1,5 +1,15 @@
-import { CSSProperties, ElementType, HTMLAttributes, ReactNode } from "react";
-import { ColorScheme, ColorWeight, RadiusNest, RadiusSize, ShadowSize, SpacingToken, TextSize, TextVariant, TextWeight } from "./types";
+import {CSSProperties, ElementType, HTMLAttributes, ReactNode} from "react";
+import {
+    ColorScheme,
+    ColorWeight,
+    RadiusNest,
+    RadiusSize,
+    ShadowSize,
+    SpacingToken,
+    TextSize,
+    TextVariant,
+    TextWeight
+} from "./types";
 
 export interface GridProps extends HTMLAttributes<HTMLDivElement> {
     columns?: number | string;

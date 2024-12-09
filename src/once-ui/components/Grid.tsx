@@ -1,71 +1,79 @@
 'use client';
 
-import React, { CSSProperties, forwardRef } from 'react';
+import React, {CSSProperties, forwardRef} from 'react';
 import classNames from 'classnames';
 
-import { GridProps, SpacingProps, SizeProps, StyleProps, CommonProps, DisplayProps, ConditionalProps } from '../interfaces';
-import { SpacingToken, ColorScheme, ColorWeight } from '../types';
+import {
+    CommonProps,
+    ConditionalProps,
+    DisplayProps,
+    GridProps,
+    SizeProps,
+    SpacingProps,
+    StyleProps
+} from '../interfaces';
+import {ColorScheme, ColorWeight, SpacingToken} from '../types';
 
 import styles from './Grid.module.scss';
 
-interface ComponentProps extends 
-    GridProps, 
-    SpacingProps, 
-    SizeProps, 
-    StyleProps, 
-    CommonProps, 
-    DisplayProps, 
-    ConditionalProps {}
+interface ComponentProps extends GridProps,
+    SpacingProps,
+    SizeProps,
+    StyleProps,
+    CommonProps,
+    DisplayProps,
+    ConditionalProps {
+}
 
 const Grid = forwardRef<HTMLDivElement, ComponentProps>(({
-    as: Component = 'div',
-    columns,
-    rows,
-    gap,
-    position,
-    tabletColumns,
-    mobileColumns,
-    tabletRows,
-    mobileRows,
-    padding,
-    paddingLeft,
-    paddingRight,
-    paddingTop,
-    paddingBottom,
-    paddingX,
-    paddingY,
-    margin,
-    marginLeft,
-    marginRight,
-    marginTop,
-    marginBottom,
-    marginX,
-    marginY,
-    width,
-    height,
-    maxWidth,
-    minWidth,
-    minHeight,
-    maxHeight,
-    fillWidth = false,
-    fillHeight = false,
-    hide,
-    show,
-    background,
-    solid,
-    alpha,
-    border,
-    borderStyle,
-    radius,
-    overflowX,
-    overflowY,
-    zIndex,
-    shadow,
-    className,
-    style,
-    children,
-    ...rest
-}, ref) => {
+                                                             as: Component = 'div',
+                                                             columns,
+                                                             rows,
+                                                             gap,
+                                                             position,
+                                                             tabletColumns,
+                                                             mobileColumns,
+                                                             tabletRows,
+                                                             mobileRows,
+                                                             padding,
+                                                             paddingLeft,
+                                                             paddingRight,
+                                                             paddingTop,
+                                                             paddingBottom,
+                                                             paddingX,
+                                                             paddingY,
+                                                             margin,
+                                                             marginLeft,
+                                                             marginRight,
+                                                             marginTop,
+                                                             marginBottom,
+                                                             marginX,
+                                                             marginY,
+                                                             width,
+                                                             height,
+                                                             maxWidth,
+                                                             minWidth,
+                                                             minHeight,
+                                                             maxHeight,
+                                                             fillWidth = false,
+                                                             fillHeight = false,
+                                                             hide,
+                                                             show,
+                                                             background,
+                                                             solid,
+                                                             alpha,
+                                                             border,
+                                                             borderStyle,
+                                                             radius,
+                                                             overflowX,
+                                                             overflowY,
+                                                             zIndex,
+                                                             shadow,
+                                                             className,
+                                                             style,
+                                                             children,
+                                                             ...rest
+                                                         }, ref) => {
     const generateClassName = (prefix: string, token: SpacingToken | undefined) => {
         return token ? `${prefix}-${token}` : undefined;
     };
@@ -155,5 +163,5 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(({
 
 Grid.displayName = 'Grid';
 
-export { Grid };
-export type { GridProps };
+export {Grid};
+export type {GridProps};

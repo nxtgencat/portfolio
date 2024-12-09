@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, forwardRef } from 'react';
+import React, {forwardRef, useEffect, useRef} from 'react';
 import styles from './SparkleFx.module.scss';
 
 interface SparkleFxProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -13,14 +13,14 @@ interface SparkleFxProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const SparkleFx = forwardRef<HTMLDivElement, SparkleFxProps>(({
-    children,
-    speed = 'medium',
-    count = 50,
-    trigger = true,
-    className,
-    style,
-    ...rest
-}, ref) => {
+                                                                  children,
+                                                                  speed = 'medium',
+                                                                  count = 50,
+                                                                  trigger = true,
+                                                                  className,
+                                                                  style,
+                                                                  ...rest
+                                                              }, ref) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const activeParticlesRef = useRef<number>(0);
     const intervalIdRef = useRef<number | null>(null);
@@ -119,4 +119,4 @@ const SparkleFx = forwardRef<HTMLDivElement, SparkleFxProps>(({
 });
 
 SparkleFx.displayName = 'SparkleFx';
-export { SparkleFx };
+export {SparkleFx};

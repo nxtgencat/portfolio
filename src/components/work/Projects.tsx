@@ -1,14 +1,14 @@
-import { getPosts } from '@/app/utils/utils';
-import { Flex } from '@/once-ui/components';
+import {getPosts} from '@/app/utils/utils';
+import {Flex} from '@/once-ui/components';
 
-import { ProjectCard } from '@/components';
+import {ProjectCard} from '@/components';
 
 interface ProjectsProps {
     range?: [number, number?];
     locale: string;
 }
 
-export function Projects({ range, locale }: ProjectsProps) {
+export function Projects({range, locale}: ProjectsProps) {
     let allProjects = getPosts(['src', 'app', '[locale]', 'work', 'projects', locale]);
 
     const sortedProjects = allProjects.sort((a, b) => {
@@ -31,7 +31,7 @@ export function Projects({ range, locale }: ProjectsProps) {
                     title={post.metadata.title}
                     description={post.metadata.summary}
                     content={post.content}
-                    avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}/>
+                    avatars={post.metadata.team?.map((member) => ({src: member.avatar})) || []}/>
             ))}
         </Flex>
     );

@@ -1,9 +1,9 @@
 'use client';
 
-import React, { forwardRef, useState, useEffect, ReactNode } from 'react';
+import React, {forwardRef, ReactNode, useEffect, useState} from 'react';
 import Link from 'next/link';
 
-import { Icon, Tooltip } from '.';
+import {Icon, Tooltip} from '.';
 import buttonStyles from './Button.module.scss';
 import iconStyles from './IconButton.module.scss';
 
@@ -25,17 +25,17 @@ export type AnchorProps = CommonProps & React.AnchorHTMLAttributes<HTMLAnchorEle
 const isExternalLink = (url: string) => /^https?:\/\//.test(url);
 
 const IconButton = forwardRef<HTMLButtonElement, IconButtonProps | AnchorProps>(({
-    icon = 'refresh',
-    size = 'm',
-    tooltip,
-    tooltipPosition = 'top',
-    variant = 'primary',
-    className,
-    style,
-    href,
-    children,
-    ...props
-}, ref) => {
+                                                                                     icon = 'refresh',
+                                                                                     size = 'm',
+                                                                                     tooltip,
+                                                                                     tooltipPosition = 'top',
+                                                                                     variant = 'primary',
+                                                                                     className,
+                                                                                     style,
+                                                                                     href,
+                                                                                     children,
+                                                                                     ...props
+                                                                                 }, ref) => {
     const [isTooltipVisible, setTooltipVisible] = useState(false);
     const [isHover, setIsHover] = useState(false);
 
@@ -57,11 +57,11 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps | AnchorProps>(
             {children ? (
                 children
             ) : (
-                <Icon name={icon} size="s" />
+                <Icon name={icon} size="s"/>
             )}
             {tooltip && isTooltipVisible && (
-                <div style={{ position: "absolute" }} className={iconStyles[tooltipPosition]}>
-                    <Tooltip label={tooltip} />
+                <div style={{position: "absolute"}} className={iconStyles[tooltipPosition]}>
+                    <Tooltip label={tooltip}/>
                 </div>
             )}
         </>
@@ -69,7 +69,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps | AnchorProps>(
 
     const commonProps = {
         className: `${buttonStyles.button} ${buttonStyles[variant]} ${iconStyles[size]} ${className || ''}`,
-        style: { ...style },
+        style: {...style},
         onMouseEnter: () => setIsHover(true),
         onMouseLeave: () => setIsHover(false),
         'aria-label': tooltip || icon,
@@ -115,4 +115,4 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps | AnchorProps>(
 
 IconButton.displayName = 'IconButton';
 
-export { IconButton };
+export {IconButton};

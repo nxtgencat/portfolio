@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, forwardRef, useImperativeHandle, useRef } from 'react';
-import { Flex, Icon, Heading } from '.';
+import React, {forwardRef, useEffect, useImperativeHandle, useRef, useState} from 'react';
+import {Flex, Heading, Icon} from '.';
 import styles from './Accordion.module.scss';
 import classNames from 'classnames';
 
@@ -14,12 +14,12 @@ interface AccordionProps {
 }
 
 const Accordion: React.FC<AccordionProps> = forwardRef(({
-    title,
-    children,
-    style,
-    className,
-    open = false
-}, ref) => {
+                                                            title,
+                                                            children,
+                                                            style,
+                                                            className,
+                                                            open = false
+                                                        }, ref) => {
     const [isOpen, setIsOpen] = useState(open);
     const [maxHeight, setMaxHeight] = useState('0px');
     const [isVisible, setIsVisible] = useState(open);
@@ -31,7 +31,7 @@ const Accordion: React.FC<AccordionProps> = forwardRef(({
             const contentHeight = innerContentRef.current.scrollHeight;
             const paddingTop = parseFloat(window.getComputedStyle(innerContentRef.current).paddingTop);
             const paddingBottom = parseFloat(window.getComputedStyle(innerContentRef.current).paddingBottom);
-            
+
             const totalHeight = contentHeight + paddingTop + paddingBottom;
             return `${totalHeight}px`;
         }
@@ -99,7 +99,7 @@ const Accordion: React.FC<AccordionProps> = forwardRef(({
             direction="column"
             style={style}
             className={classNames(styles.border, className)}>
-            <Flex 
+            <Flex
                 tabIndex={0}
                 className={styles.accordion}
                 paddingY="16"
@@ -116,7 +116,11 @@ const Accordion: React.FC<AccordionProps> = forwardRef(({
                 <Icon
                     name="chevronDown"
                     size="m"
-                    style={{ display: 'flex', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'var(--transition-micro-medium)' }} />
+                    style={{
+                        display: 'flex',
+                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'var(--transition-micro-medium)'
+                    }}/>
             </Flex>
             <Flex
                 id="accordion-content"
@@ -143,4 +147,4 @@ const Accordion: React.FC<AccordionProps> = forwardRef(({
 
 Accordion.displayName = 'Accordion';
 
-export { Accordion };
+export {Accordion};

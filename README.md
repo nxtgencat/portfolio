@@ -1,9 +1,10 @@
 # Magic Portfolio
 
-Magic Portfolio is a powerful, customizable portfolio website template built with [Once UI](https://once-ui.com) and [Next.js](https://nextjs.org), designed for designers and developers to showcase their work professionally and elegantly.
+Magic Portfolio is a powerful, customizable portfolio website template built with [Once UI](https://once-ui.com)
+and [Next.js](https://nextjs.org), designed for designers and developers to showcase their work professionally and
+elegantly.
 
 ![Showcase](https://github.com/user-attachments/assets/bb04f077-4bd6-4de7-b3a6-9dd7f3398220)
-
 
 ## Project Overview
 
@@ -12,20 +13,20 @@ Magic Portfolio offers a sleek, responsive portfolio solution with robust featur
 ### Key Features
 
 - **UI Framework**: Leverages [Once UI](https://once-ui.com) for comprehensive design tokens, components, and theming
-- **SEO Optimization**: 
-  - Automatic open-graph and X image generation
-  - Dynamic schema and metadata creation
+- **SEO Optimization**:
+    - Automatic open-graph and X image generation
+    - Dynamic schema and metadata creation
 - **Design Principles**:
-  - Fully responsive across all device sizes
-  - Minimalist design with timeless aesthetics
-  - Extensive customization through data attributes
+    - Fully responsive across all device sizes
+    - Minimalist design with timeless aesthetics
+    - Extensive customization through data attributes
 - **Content Flexibility**:
-  - Conditional section rendering
-  - Configurable page visibility for blog, work, gallery, and about/CV
-  - Automatic social link generation
-  - Optional URL password protection
-- **Internationalization**: 
-  - Full localization support using next-intl library
+    - Conditional section rendering
+    - Configurable page visibility for blog, work, gallery, and about/CV
+    - Automatic social link generation
+    - Optional URL password protection
+- **Internationalization**:
+    - Full localization support using next-intl library
 
 ## Prerequisites
 
@@ -34,16 +35,19 @@ Magic Portfolio offers a sleek, responsive portfolio solution with robust featur
 ## Getting Started
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/once-ui-system/magic-portfolio.git
 ```
 
 ### 2. Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### 3. Run Development Server
+
 ```bash
 npm run dev
 ```
@@ -51,11 +55,13 @@ npm run dev
 ### 4. Configuration
 
 #### Edit Configuration
+
 ```
 src/app/resources/config
 ```
 
 #### Edit Content
+
 ```
 src/app/resources/content (or content-i18n for localization)
 ```
@@ -63,6 +69,7 @@ src/app/resources/content (or content-i18n for localization)
 ### 5. Create Content
 
 Add new blog posts or projects by creating .mdx files:
+
 - Blog posts: `src/app/[locale]/blog/posts`
 - Projects: `src/app/[locale]/work/projects`
 

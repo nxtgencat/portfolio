@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 import classNames from 'classnames';
-import { Flex, Icon, InteractiveDetails, InteractiveDetailsProps } from '.';
+import {Flex, Icon, InteractiveDetails, InteractiveDetailsProps} from '.';
 import styles from './SharedInteractiveStyles.module.scss';
 
 interface CheckboxProps extends Omit<InteractiveDetailsProps, 'onClick'>, React.InputHTMLAttributes<HTMLInputElement> {
@@ -14,14 +14,14 @@ interface CheckboxProps extends Omit<InteractiveDetailsProps, 'onClick'>, React.
 const generateId = () => `checkbox-${Math.random().toString(36).substring(2, 9)}`;
 
 const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxProps>(({
-    style,
-    className,
-    isChecked: controlledIsChecked,
-    isIndeterminate = false,
-    onToggle,
-    disabled,
-    ...props
-}, ref) => {
+                                                                                           style,
+                                                                                           className,
+                                                                                           isChecked: controlledIsChecked,
+                                                                                           isIndeterminate = false,
+                                                                                           onToggle,
+                                                                                           disabled,
+                                                                                           ...props
+                                                                                       }, ref) => {
     const [isChecked, setIsChecked] = useState(controlledIsChecked || false);
     const [checkboxId] = useState(generateId());
 
@@ -56,7 +56,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxP
                 classNames(
                     styles.container,
                     className,
-                    { [styles.disabled]: disabled }
+                    {[styles.disabled]: disabled}
                 )
             }
             style={style}>
@@ -118,5 +118,5 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxP
 
 Checkbox.displayName = 'Checkbox';
 
-export { Checkbox };
-export type { CheckboxProps };
+export {Checkbox};
+export type {CheckboxProps};

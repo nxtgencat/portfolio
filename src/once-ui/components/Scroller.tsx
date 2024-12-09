@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import classNames from 'classnames';
-import { Flex, IconButton } from '.';
+import {Flex, IconButton} from '.';
 import styles from './Scroller.module.scss';
 
 interface ScrollerProps {
@@ -11,17 +11,18 @@ interface ScrollerProps {
     contained?: boolean;
     className?: string;
     style?: React.CSSProperties;
+
     [key: string]: any;
 }
 
 const Scroller: React.FC<ScrollerProps> = ({
-    children,
-    direction = 'row',
-    contained = false,
-    className,
-    style,
-    ...props
-}) => {
+                                               children,
+                                               direction = 'row',
+                                               contained = false,
+                                               className,
+                                               style,
+                                               ...props
+                                           }) => {
     const scrollerRef = useRef<HTMLDivElement>(null);
     const [showPrevButton, setShowPrevButton] = useState<boolean>(false);
     const [showNextButton, setShowNextButton] = useState<boolean>(false);
@@ -50,7 +51,7 @@ const Scroller: React.FC<ScrollerProps> = ({
         const scroller = scrollerRef.current;
         if (scroller) {
             const scrollAmount = direction === 'row' ? scroller.clientWidth / 2 : scroller.clientHeight / 2;
-            scroller.scrollBy({ [direction === 'row' ? 'left' : 'top']: scrollAmount, behavior: 'smooth' });
+            scroller.scrollBy({[direction === 'row' ? 'left' : 'top']: scrollAmount, behavior: 'smooth'});
         }
     };
 
@@ -58,7 +59,7 @@ const Scroller: React.FC<ScrollerProps> = ({
         const scroller = scrollerRef.current;
         if (scroller) {
             const scrollAmount = direction === 'row' ? scroller.clientWidth / 2 : scroller.clientHeight / 2;
-            scroller.scrollBy({ [direction === 'row' ? 'left' : 'top']: -scrollAmount, behavior: 'smooth' });
+            scroller.scrollBy({[direction === 'row' ? 'left' : 'top']: -scrollAmount, behavior: 'smooth'});
         }
     };
 
@@ -117,5 +118,5 @@ const Scroller: React.FC<ScrollerProps> = ({
 
 Scroller.displayName = 'Scroller';
 
-export { Scroller };
-export type { ScrollerProps };
+export {Scroller};
+export type {ScrollerProps};

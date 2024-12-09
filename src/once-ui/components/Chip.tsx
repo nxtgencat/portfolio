@@ -1,8 +1,8 @@
 'use client';
 
-import React, { ReactNode, HTMLAttributes, MouseEventHandler, forwardRef } from 'react';
+import React, {forwardRef, HTMLAttributes, MouseEventHandler, ReactNode} from 'react';
 import classNames from 'classnames';
-import { Text, Icon, IconButton, IconButtonProps, Flex } from '.';
+import {Flex, Icon, IconButton, IconButtonProps, Text} from '.';
 import styles from './Chip.module.scss';
 
 interface ChipProps extends HTMLAttributes<HTMLDivElement> {
@@ -18,17 +18,17 @@ interface ChipProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const Chip: React.FC<ChipProps> = forwardRef<HTMLDivElement, ChipProps>(({
-    label,
-    selected = true,
-    prefixIcon,
-    onRemove,
-    onClick,
-    children,
-    iconButtonProps = {},
-    style,
-    className,
-    ...props
-}, ref) => {
+                                                                             label,
+                                                                             selected = true,
+                                                                             prefixIcon,
+                                                                             onRemove,
+                                                                             onClick,
+                                                                             children,
+                                                                             iconButtonProps = {},
+                                                                             style,
+                                                                             className,
+                                                                             ...props
+                                                                         }, ref) => {
     const defaultIconButtonProps: IconButtonProps = {
         icon: "close",
         variant: "ghost",
@@ -74,8 +74,8 @@ const Chip: React.FC<ChipProps> = forwardRef<HTMLDivElement, ChipProps>(({
             onKeyDown={handleKeyDown}
             style={style}
             {...props}>
-            {prefixIcon && 
-                <Icon name={prefixIcon} size="s" />
+            {prefixIcon &&
+                <Icon name={prefixIcon} size="s"/>
             }
             <Flex
                 paddingX="8"
@@ -87,7 +87,7 @@ const Chip: React.FC<ChipProps> = forwardRef<HTMLDivElement, ChipProps>(({
             </Flex>
             {onRemove && (
                 <IconButton style={{color: 'inherit'}}
-                    {...combinedIconButtonProps}/>
+                            {...combinedIconButtonProps}/>
             )}
         </Flex>
     );
@@ -95,4 +95,4 @@ const Chip: React.FC<ChipProps> = forwardRef<HTMLDivElement, ChipProps>(({
 
 Chip.displayName = 'Chip';
 
-export { Chip };
+export {Chip};

@@ -1,7 +1,7 @@
 'use client';
 
-import { Flex, RevealFx, Scroller, SmartImage } from "@/once-ui/components";
-import { useEffect, useState } from "react";
+import {Flex, RevealFx, Scroller, SmartImage} from "@/once-ui/components";
+import {useEffect, useState} from "react";
 
 interface Image {
     src: string;
@@ -17,12 +17,12 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({
-    images = [],
-    indicator = 'line',
-    aspectRatio = '16 / 9',
-    sizes,
-    revealedByDefault = false,
-}) => {
+                                               images = [],
+                                               indicator = 'line',
+                                               aspectRatio = '16 / 9',
+                                               sizes,
+                                               revealedByDefault = false,
+                                           }) => {
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const [isTransitioning, setIsTransitioning] = useState(revealedByDefault);
 
@@ -69,7 +69,7 @@ const Carousel: React.FC<CarouselProps> = ({
             <Flex onClick={handleImageClick}>
                 <RevealFx
                     revealedByDefault={revealedByDefault}
-                    style={{ width: '100%' }}
+                    style={{width: '100%'}}
                     trigger={isTransitioning}
                     translateY="16"
                     speed="fast">
@@ -155,4 +155,4 @@ const Carousel: React.FC<CarouselProps> = ({
 };
 
 Carousel.displayName = 'Carousel';
-export { Carousel };
+export {Carousel};

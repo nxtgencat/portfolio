@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, KeyboardEventHandler, ChangeEventHandler, FocusEventHandler, forwardRef } from 'react';
+import React, {ChangeEventHandler, FocusEventHandler, forwardRef, KeyboardEventHandler, useState} from 'react';
 
-import { Flex, Chip, Input, InputProps } from '.';
+import {Chip, Flex, Input, InputProps} from '.';
 
 interface TagInputProps extends Omit<InputProps, 'onChange' | 'value'> {
     value: string[];
@@ -10,12 +10,12 @@ interface TagInputProps extends Omit<InputProps, 'onChange' | 'value'> {
 }
 
 const TagInput = forwardRef<HTMLInputElement, TagInputProps>(({
-    value,
-    onChange,
-    label,
-    placeholder,
-    ...inputProps
-}, ref) => {
+                                                                  value,
+                                                                  onChange,
+                                                                  label,
+                                                                  placeholder,
+                                                                  ...inputProps
+                                                              }, ref) => {
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
 
@@ -63,7 +63,7 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(({
             {...inputProps}>
             {value.length > 0 && (
                 <Flex
-                    style={{ margin: 'calc(-1 * var(--static-space-8)) var(--static-space-8)' }}
+                    style={{margin: 'calc(-1 * var(--static-space-8)) var(--static-space-8)'}}
                     direction="row"
                     gap="4"
                     alignItems="center"
@@ -84,5 +84,5 @@ const TagInput = forwardRef<HTMLInputElement, TagInputProps>(({
 
 TagInput.displayName = 'TagInput';
 
-export { TagInput };
-export type { TagInputProps };
+export {TagInput};
+export type {TagInputProps};

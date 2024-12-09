@@ -1,10 +1,10 @@
 'use client';
 
-import React, { forwardRef } from 'react';
+import React, {forwardRef} from 'react';
 import classNames from 'classnames';
-import { IconType } from 'react-icons';
-import { iconLibrary } from '../icons';
-import { ColorScheme, ColorWeight } from '../types';
+import {IconType} from 'react-icons';
+import {iconLibrary} from '../icons';
+import {ColorScheme, ColorWeight} from '../types';
 
 const sizeMap: Record<string, string> = {
     xs: 'var(--static-space-16)',
@@ -25,14 +25,14 @@ type IconProps = {
 };
 
 const Icon = forwardRef<HTMLDivElement, IconProps>(({
-    name,
-    onBackground,
-    onSolid,
-    size = 'm',
-    decorative = true,
-    className,
-    style,
-}, ref) => {
+                                                        name,
+                                                        onBackground,
+                                                        onSolid,
+                                                        size = 'm',
+                                                        decorative = true,
+                                                        className,
+                                                        style,
+                                                    }, ref) => {
     const IconComponent: IconType | undefined = iconLibrary[name];
 
     if (!IconComponent) {
@@ -58,15 +58,15 @@ const Icon = forwardRef<HTMLDivElement, IconProps>(({
         <span
             ref={ref}
             className={classNames(colorClass, className)}
-            style={{ display: 'contents', fontSize: sizeMap[size], ...style }}
+            style={{display: 'contents', fontSize: sizeMap[size], ...style}}
             role={decorative ? "presentation" : undefined}
             aria-hidden={decorative ? "true" : undefined}
             aria-label={decorative ? undefined : name}>
-            <IconComponent />
+            <IconComponent/>
         </span>
     );
 });
 
 Icon.displayName = 'Icon';
 
-export { Icon };
+export {Icon};

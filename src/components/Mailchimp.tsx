@@ -1,9 +1,9 @@
 "use client";
 
-import { mailchimp } from '@/app/resources'
-import { Button, Flex, Heading, Input, Text, Background } from '@/once-ui/components';
-import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import {mailchimp} from '@/app/resources'
+import {Background, Button, Flex, Heading, Input, Text} from '@/once-ui/components';
+import {useState} from 'react';
+import {useTranslations} from 'next-intl';
 
 
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T {
@@ -21,7 +21,7 @@ type NewsletterProps = {
 }
 
 export const Mailchimp = (
-    { newsletter }: { newsletter: NewsletterProps}
+    {newsletter}: { newsletter: NewsletterProps }
 ) => {
     const [email, setEmail] = useState<string>('');
     const [error, setError] = useState<string>('');
@@ -62,7 +62,7 @@ export const Mailchimp = (
         <Flex
             style={{overflow: 'hidden'}}
             position="relative"
-            fillWidth padding="xl"  radius="l" marginBottom="m"
+            fillWidth padding="xl" radius="l" marginBottom="m"
             direction="column" alignItems="center" align="center"
             background="surface" border="neutral-medium" borderStyle="solid-1">
             <Background
@@ -72,8 +72,8 @@ export const Mailchimp = (
                 dots={mailchimp.effects.dots as any}
                 lines={mailchimp.effects.lines as any}/>
             <Heading style={{position: 'relative'}}
-                marginBottom="s"
-                variant="display-strong-xs">
+                     marginBottom="s"
+                     variant="display-strong-xs">
                 {newsletter.title}
             </Heading>
             <Text
@@ -97,7 +97,7 @@ export const Mailchimp = (
                 id="mc-embedded-subscribe-form"
                 name="mc-embedded-subscribe-form">
                 <Flex id="mc_embed_signup_scroll"
-                    fillWidth maxWidth={24} gap="8">
+                      fillWidth maxWidth={24} gap="8">
                     <Input
                         formNoValidate
                         labelAsPlaceholder
@@ -116,14 +116,16 @@ export const Mailchimp = (
                         onBlur={handleBlur}
                         error={error}/>
                     <div style={{display: 'none'}}>
-                        <input type="checkbox" readOnly name="group[3492][1]" id="mce-group[3492]-3492-0" value="" checked/>
+                        <input type="checkbox" readOnly name="group[3492][1]" id="mce-group[3492]-3492-0" value=""
+                               checked/>
                     </div>
                     <div id="mce-responses" className="clearfalse">
                         <div className="response" id="mce-error-response" style={{display: 'none'}}></div>
                         <div className="response" id="mce-success-response" style={{display: 'none'}}></div>
                     </div>
                     <div aria-hidden="true" style={{position: 'absolute', left: '-5000px'}}>
-                        <input type="text" readOnly name="b_c1a5a210340eb6c7bff33b2ba_0462d244aa" tabIndex={-1} value=""/>
+                        <input type="text" readOnly name="b_c1a5a210340eb6c7bff33b2ba_0462d244aa" tabIndex={-1}
+                               value=""/>
                     </div>
                     <div className="clear">
                         <Flex

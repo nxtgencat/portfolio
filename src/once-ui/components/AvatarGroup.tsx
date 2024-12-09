@@ -1,8 +1,8 @@
 'use client';
 
-import React, { forwardRef } from 'react';
+import React, {forwardRef} from 'react';
 
-import { Avatar, AvatarProps, Flex } from '.';
+import {Avatar, AvatarProps, Flex} from '.';
 import styles from './AvatarGroup.module.scss';
 
 interface AvatarGroupProps {
@@ -15,13 +15,13 @@ interface AvatarGroupProps {
 }
 
 const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(({
-    avatars,
-    size = 'm',
-    reverseOrder = false,
-    limit,
-    className,
-    style
-}, ref) => {
+                                                                      avatars,
+                                                                      size = 'm',
+                                                                      reverseOrder = false,
+                                                                      limit,
+                                                                      className,
+                                                                      style
+                                                                  }, ref) => {
     const displayedAvatars = limit ? avatars.slice(0, limit) : avatars;
     const remainingCount = limit && avatars.length > limit ? avatars.length - limit : 0;
 
@@ -51,7 +51,7 @@ const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(({
                     size={size}
                     style={{
                         ...style,
-                        zIndex: reverseOrder ?  -1 : displayedAvatars.length + 1
+                        zIndex: reverseOrder ? -1 : displayedAvatars.length + 1
                     }}/>
             )}
         </Flex>
@@ -60,5 +60,5 @@ const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(({
 
 AvatarGroup.displayName = 'AvatarGroup';
 
-export { AvatarGroup };
-export type { AvatarGroupProps };
+export {AvatarGroup};
+export type {AvatarGroupProps};

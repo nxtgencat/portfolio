@@ -1,9 +1,9 @@
 'use client';
 
-import React, { ReactNode, useEffect, useCallback, useRef, forwardRef, useState } from 'react';
+import React, {forwardRef, ReactNode, useCallback, useEffect, useRef, useState} from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import { Flex, Heading, IconButton, Button, ButtonProps, Text } from '.';
+import {Button, ButtonProps, Flex, Heading, IconButton, Text} from '.';
 import styles from './Dialog.module.scss';
 
 interface DialogButtonProps extends Partial<ButtonProps> {
@@ -25,17 +25,17 @@ interface DialogProps {
 }
 
 const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(({
-    isOpen,
-    onClose,
-    title,
-    description,
-    children,
-    primaryButtonProps,
-    secondaryButtonProps,
-    dangerButtonProps,
-    style,
-    className
-}, ref) => {
+                                                                                   isOpen,
+                                                                                   onClose,
+                                                                                   title,
+                                                                                   description,
+                                                                                   children,
+                                                                                   primaryButtonProps,
+                                                                                   secondaryButtonProps,
+                                                                                   dangerButtonProps,
+                                                                                   style,
+                                                                                   className
+                                                                               }, ref) => {
     const dialogRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(isOpen);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -104,7 +104,7 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(({
     return ReactDOM.createPortal(
         <Flex
             ref={ref}
-            className={classNames(styles.overlay, className, { [styles.open]: isAnimating })}
+            className={classNames(styles.overlay, className, {[styles.open]: isAnimating})}
             style={style}
             justifyContent="center"
             alignItems="center"
@@ -113,8 +113,8 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(({
             aria-modal="true"
             aria-labelledby="dialog-title">
             <Flex
-                style={{ maxHeight: '100%' }}
-                className={classNames(styles.dialog, { [styles.open]: isAnimating })}
+                style={{maxHeight: '100%'}}
+                className={classNames(styles.dialog, {[styles.open]: isAnimating})}
                 ref={dialogRef}
                 fillWidth
                 radius="xl"
@@ -143,7 +143,7 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(({
                             size="m"
                             variant="tertiary"
                             tooltip="Close"
-                            onClick={onClose} />
+                            onClick={onClose}/>
                     </Flex>
                     {description && (
                         <Text
@@ -168,10 +168,10 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(({
                         as="footer"
                         justifyContent="space-between"
                         padding="12">
-                            {dangerButtonProps ? (
-                                <Button
-                                    {...dangerButtonProps}/>
-                            ) : <div/>
+                        {dangerButtonProps ? (
+                            <Button
+                                {...dangerButtonProps}/>
+                        ) : <div/>
                         }
                         <Flex gap="8">
                             {secondaryButtonProps && (
@@ -193,4 +193,4 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(({
 
 Dialog.displayName = 'Dialog';
 
-export { Dialog };
+export {Dialog};

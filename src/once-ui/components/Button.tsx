@@ -1,9 +1,9 @@
 'use client';
 
-import React, { ReactNode, forwardRef } from 'react';
+import React, {forwardRef, ReactNode} from 'react';
 import Link from 'next/link';
 
-import { Spinner, Icon } from '.';
+import {Icon, Spinner} from '.';
 import styles from './Button.module.scss';
 
 interface CommonProps {
@@ -26,34 +26,34 @@ export type AnchorProps = CommonProps & React.AnchorHTMLAttributes<HTMLAnchorEle
 const isExternalLink = (url: string) => /^https?:\/\//.test(url);
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(({
-    variant = 'primary',
-    size = 'm',
-    label,
-    children,
-    prefixIcon,
-    suffixIcon,
-    loading = false,
-    fillWidth = false,
-    href,
-    className,
-    style,
-    ...props
-}, ref) => {
+                                                                             variant = 'primary',
+                                                                             size = 'm',
+                                                                             label,
+                                                                             children,
+                                                                             prefixIcon,
+                                                                             suffixIcon,
+                                                                             loading = false,
+                                                                             fillWidth = false,
+                                                                             href,
+                                                                             className,
+                                                                             style,
+                                                                             ...props
+                                                                         }, ref) => {
     const labelSize = size === 'l' ? 'font-l' : size === 'm' ? 'font-m' : 'font-s';
     const iconSize = size === 'l' ? 'm' : size === 'm' ? 's' : 'xs';
 
     const content = (
         <>
-            {prefixIcon && !loading && <Icon name={prefixIcon} size={iconSize} />}
-            {loading && <Spinner size={size} />}
+            {prefixIcon && !loading && <Icon name={prefixIcon} size={iconSize}/>}
+            {loading && <Spinner size={size}/>}
             <div className={`font-label font-strong ${styles.label} ${labelSize}`}>{label || children}</div>
-            {suffixIcon && <Icon name={suffixIcon} size={iconSize} />}
+            {suffixIcon && <Icon name={suffixIcon} size={iconSize}/>}
         </>
     );
 
     const commonProps = {
         className: `${styles.button} ${styles[variant]} ${styles[size]} ${fillWidth ? styles.fillWidth : styles.fitContent} ${className || ''}`,
-        style: { ...style, textDecoration: 'none' },
+        style: {...style, textDecoration: 'none'},
     };
 
     if (href) {
@@ -96,4 +96,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(({
 
 Button.displayName = 'Button';
 
-export { Button };
+export {Button};

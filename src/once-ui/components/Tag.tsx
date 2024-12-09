@@ -1,9 +1,9 @@
 'use client';
 
-import React, { forwardRef, HTMLAttributes, ReactNode } from 'react';
+import React, {forwardRef, HTMLAttributes, ReactNode} from 'react';
 import classNames from 'classnames';
 
-import { Flex, Text, Icon } from '.';
+import {Flex, Icon, Text} from '.';
 import styles from './Tag.module.scss';
 
 interface TagProps extends HTMLAttributes<HTMLDivElement> {
@@ -16,15 +16,15 @@ interface TagProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const Tag = forwardRef<HTMLDivElement, TagProps>(({
-    variant = 'neutral',
-    size = 'm',
-    label = '',
-    prefixIcon,
-    suffixIcon,
-    className,
-    children,
-    ...props
-}, ref) => {
+                                                      variant = 'neutral',
+                                                      size = 'm',
+                                                      label = '',
+                                                      prefixIcon,
+                                                      suffixIcon,
+                                                      className,
+                                                      children,
+                                                      ...props
+                                                  }, ref) => {
     const paddingSize = size === 's' ? '2' : '4';
 
     return (
@@ -35,22 +35,22 @@ const Tag = forwardRef<HTMLDivElement, TagProps>(({
             ref={ref}
             className={classNames(styles.tag, styles[variant], styles[size], className)}
             {...props}>
-            {prefixIcon && <Icon name={prefixIcon} size="xs" />}
+            {prefixIcon && <Icon name={prefixIcon} size="xs"/>}
             <Flex style={{userSelect: 'none'}}
-                paddingX={paddingSize}
-                alignItems="center">
+                  paddingX={paddingSize}
+                  alignItems="center">
                 <Text
                     as="span"
                     variant="label-default-s">
                     {label || children}
                 </Text>
             </Flex>
-            {suffixIcon && <Icon name={suffixIcon} size="xs" />}
+            {suffixIcon && <Icon name={suffixIcon} size="xs"/>}
         </Flex>
     );
 });
 
 Tag.displayName = 'Tag';
 
-export { Tag };
-export type { TagProps };
+export {Tag};
+export type {TagProps};

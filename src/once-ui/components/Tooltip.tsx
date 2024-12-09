@@ -1,9 +1,9 @@
 'use client';
 
-import React, { forwardRef } from 'react';
+import React, {forwardRef} from 'react';
 import classNames from 'classnames';
 
-import { Flex, Text, Icon } from '.';
+import {Flex, Icon, Text} from '.';
 
 type TooltipProps = {
     label: string;
@@ -13,15 +13,15 @@ type TooltipProps = {
 };
 
 const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(({
-    label,
-    prefixIcon,
-    suffixIcon,
-    className,
-}, ref) => {
+                                                              label,
+                                                              prefixIcon,
+                                                              suffixIcon,
+                                                              className,
+                                                          }, ref) => {
     return (
         <Flex
             ref={ref}
-            style={{ whiteSpace: 'nowrap', userSelect: 'none' }}
+            style={{whiteSpace: 'nowrap', userSelect: 'none'}}
             gap="4"
             zIndex={1}
             background="surface"
@@ -33,7 +33,7 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(({
             alignItems="center"
             role="tooltip"
             className={classNames(className)}>
-            {prefixIcon && <Icon name={prefixIcon} size="xs" />}
+            {prefixIcon && <Icon name={prefixIcon} size="xs"/>}
             <Flex paddingX="2">
                 <Text
                     as="span"
@@ -42,11 +42,11 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(({
                     {label}
                 </Text>
             </Flex>
-            {suffixIcon && <Icon name={suffixIcon} size="xs" />}
+            {suffixIcon && <Icon name={suffixIcon} size="xs"/>}
         </Flex>
     );
 });
 
 Tooltip.displayName = 'Tooltip';
 
-export { Tooltip };
+export {Tooltip};

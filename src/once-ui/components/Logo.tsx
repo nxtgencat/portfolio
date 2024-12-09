@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import styles from './Logo.module.scss';
-import { SpacingToken } from '../types';
-import { Flex } from '.';
+import {SpacingToken} from '../types';
+import {Flex} from '.';
 
 const sizeMap: Record<string, SpacingToken> = {
     xs: '20',
@@ -27,16 +27,16 @@ interface LogoProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const Logo: React.FC<LogoProps> = ({
-    size = 'm',
-    wordmark = true,
-    icon = true,
-    href,
-    iconSrc,
-    wordmarkSrc,
-    className,
-    style,
-    ...props
-}) => {
+                                       size = 'm',
+                                       wordmark = true,
+                                       icon = true,
+                                       href,
+                                       iconSrc,
+                                       wordmarkSrc,
+                                       className,
+                                       style,
+                                       ...props
+                                   }) => {
     useEffect(() => {
         if (!icon && !wordmark) {
             console.warn("Both 'icon' and 'wordmark' props are set to false. The logo will not render any content.");
@@ -47,26 +47,26 @@ const Logo: React.FC<LogoProps> = ({
         <>
             {icon && !iconSrc && (
                 <div
-                    style={{ height: `var(--static-space-${sizeMap[size]})` }}
+                    style={{height: `var(--static-space-${sizeMap[size]})`}}
                     className={styles.icon}
                 />
             )}
             {iconSrc && (
                 <img
-                    style={{ height: `var(--static-space-${sizeMap[size]})`, width: 'auto' }}
+                    style={{height: `var(--static-space-${sizeMap[size]})`, width: 'auto'}}
                     alt="Trademark"
                     src={iconSrc}
                 />
             )}
             {wordmark && !wordmarkSrc && (
                 <div
-                    style={{ height: `var(--static-space-${sizeMap[size]})` }}
+                    style={{height: `var(--static-space-${sizeMap[size]})`}}
                     className={styles.type}
                 />
             )}
             {wordmarkSrc && (
                 <img
-                    style={{ height: `var(--static-space-${sizeMap[size]})`, width: 'auto'}}
+                    style={{height: `var(--static-space-${sizeMap[size]})`, width: 'auto'}}
                     alt="Trademark"
                     src={wordmarkSrc}
                 />
@@ -77,7 +77,7 @@ const Logo: React.FC<LogoProps> = ({
     return href ? (
         <Link
             className={classNames('radius-l', 'flex', className)}
-            style={{ height: 'fit-content', ...style }}
+            style={{height: 'fit-content', ...style}}
             href={href}
             aria-label="Trademark"
             {...props}>
@@ -86,7 +86,7 @@ const Logo: React.FC<LogoProps> = ({
     ) : (
         <Flex
             className={classNames('radius-l', 'flex', className)}
-            style={{ height: 'fit-content', ...style }}
+            style={{height: 'fit-content', ...style}}
             aria-label="Trademark">
             {content}
         </Flex>
@@ -94,4 +94,4 @@ const Logo: React.FC<LogoProps> = ({
 };
 
 Logo.displayName = 'Logo';
-export { Logo };
+export {Logo};

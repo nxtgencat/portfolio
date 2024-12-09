@@ -1,10 +1,10 @@
 'use client';
 
-import React, { CSSProperties, useState, useRef, useEffect } from 'react';
-import Image, { ImageProps } from 'next/image';
+import React, {CSSProperties, useEffect, useRef, useState} from 'react';
+import Image, {ImageProps} from 'next/image';
 import classNames from 'classnames';
 
-import { Flex, Skeleton } from '@/once-ui/components';
+import {Flex, Skeleton} from '@/once-ui/components';
 
 export type SmartImageProps = ImageProps & {
     className?: string;
@@ -21,19 +21,19 @@ export type SmartImageProps = ImageProps & {
 };
 
 const SmartImage: React.FC<SmartImageProps> = ({
-    className,
-    style,
-    aspectRatio,
-    height,
-    radius,
-    alt = '',
-    isLoading = false,
-    objectFit = 'cover',
-    enlarge = false,
-    src,
-    unoptimized = false,
-    ...props
-}) => {
+                                                   className,
+                                                   style,
+                                                   aspectRatio,
+                                                   height,
+                                                   radius,
+                                                   alt = '',
+                                                   isLoading = false,
+                                                   objectFit = 'cover',
+                                                   enlarge = false,
+                                                   src,
+                                                   unoptimized = false,
+                                                   ...props
+                                               }) => {
     const [isEnlarged, setIsEnlarged] = useState(false);
     const imageRef = useRef<HTMLDivElement>(null);
 
@@ -82,8 +82,8 @@ const SmartImage: React.FC<SmartImageProps> = ({
 
     const getYouTubeEmbedUrl = (url: string) => {
         const match = url.match(/(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-        return match 
-            ? `https://www.youtube.com/embed/${match[1]}?controls=0&rel=0&modestbranding=1` 
+        return match
+            ? `https://www.youtube.com/embed/${match[1]}?controls=0&rel=0&modestbranding=1`
             : '';
     };
 
@@ -96,15 +96,15 @@ const SmartImage: React.FC<SmartImageProps> = ({
                 ref={imageRef}
                 fillWidth
                 position="relative"
-                {...(!isEnlarged && { background: 'neutral-medium' })}
+                {...(!isEnlarged && {background: 'neutral-medium'})}
                 style={{
                     outline: 'none',
                     overflow: 'hidden',
                     height: aspectRatio
                         ? undefined
                         : height
-                        ? `${height}rem`
-                        : '100%',
+                            ? `${height}rem`
+                            : '100%',
                     aspectRatio,
                     cursor: enlarge ? 'pointer' : 'default',
                     borderRadius: isEnlarged ? '0' : radius ? `var(--radius-${radius})` : undefined,
@@ -114,7 +114,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
                 className={classNames(className)}
                 onClick={handleClick}>
                 {isLoading && (
-                    <Skeleton shape="block" />
+                    <Skeleton shape="block"/>
                 )}
                 {!isLoading && isVideo && (
                     <video
@@ -149,7 +149,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
                         src={src}
                         alt={alt}
                         fill
-                        style={{ 
+                        style={{
                             objectFit: isEnlarged ? 'contain' : objectFit,
                         }}
                     />
@@ -187,7 +187,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
                                 loop
                                 muted
                                 playsInline
-                                style={{ 
+                                style={{
                                     width: '90vw',
                                     height: 'auto',
                                     objectFit: 'contain',
@@ -201,7 +201,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
                                 fill
                                 sizes="90vw"
                                 unoptimized={unoptimized}
-                                style={{ objectFit: 'contain' }}
+                                style={{objectFit: 'contain'}}
                             />
                         )}
                     </Flex>
@@ -213,4 +213,4 @@ const SmartImage: React.FC<SmartImageProps> = ({
 
 SmartImage.displayName = 'SmartImage';
 
-export { SmartImage };
+export {SmartImage};

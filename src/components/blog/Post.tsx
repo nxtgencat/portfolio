@@ -1,15 +1,15 @@
 "use client";
 
-import { Flex, Heading, SmartImage, SmartLink, Tag, Text } from '@/once-ui/components';
+import {Flex, Heading, SmartImage, SmartLink, Tag, Text} from '@/once-ui/components';
 import styles from './Posts.module.scss';
-import { formatDate } from '@/app/utils/formatDate';
+import {formatDate} from '@/app/utils/formatDate';
 
 interface PostProps {
     post: any;
     thumbnail: boolean;
 }
 
-export default function Post({ post, thumbnail }: PostProps) {
+export default function Post({post, thumbnail}: PostProps) {
     return (
         <SmartLink
             className={styles.hover}
@@ -57,11 +57,11 @@ export default function Post({ post, thumbnail }: PostProps) {
                         onBackground="neutral-weak">
                         {formatDate(post.metadata.publishedAt, false)}
                     </Text>
-                    { post.metadata.tag &&
+                    {post.metadata.tag &&
                         <Tag
                             className="mt-8"
                             label={post.metadata.tag}
-                            variant="neutral" />
+                            variant="neutral"/>
                     }
                 </Flex>
             </Flex>

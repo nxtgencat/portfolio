@@ -1,8 +1,17 @@
 'use client';
 
-import React, { useState, useRef, useEffect, KeyboardEvent, ReactNode, forwardRef, HTMLAttributes, useImperativeHandle } from 'react';
+import React, {
+    forwardRef,
+    HTMLAttributes,
+    KeyboardEvent,
+    ReactNode,
+    useEffect,
+    useImperativeHandle,
+    useRef,
+    useState
+} from 'react';
 import classNames from 'classnames';
-import { Flex, Text } from '.';
+import {Flex, Text} from '.';
 import styles from './Dropdown.module.scss';
 
 interface DropdownOptions {
@@ -25,14 +34,14 @@ interface DropdownProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'>
 }
 
 const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
-    options,
-    selectedOption,
-    onOptionSelect,
-    className,
-    children,
-    onEscape,
-    ...props
-}, ref) => {
+                                                                options,
+                                                                selectedOption,
+                                                                onOptionSelect,
+                                                                className,
+                                                                children,
+                                                                onEscape,
+                                                                ...props
+                                                            }, ref) => {
     const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
     const [typedChars, setTypedChars] = useState<string>('');
     const internalRef = useRef<HTMLDivElement>(null);
@@ -74,7 +83,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
         if (internalRef.current && focusedIndex !== null) {
             const focusedOption = internalRef.current.querySelectorAll<HTMLElement>('.' + styles.option)[focusedIndex];
             if (focusedOption) {
-                focusedOption.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                focusedOption.scrollIntoView({behavior: 'smooth', block: 'nearest'});
                 focusedOption.focus();
             }
         }
@@ -102,7 +111,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
                 setFocusedIndex(selectedIndex);
                 const selectedOptionElement = internalRef.current.querySelectorAll<HTMLElement>('.' + styles.option)[selectedIndex];
                 if (selectedOptionElement) {
-                    selectedOptionElement.scrollIntoView({ behavior: 'auto', block: 'nearest' });
+                    selectedOptionElement.scrollIntoView({behavior: 'auto', block: 'nearest'});
                 }
             }
         }
@@ -147,7 +156,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
                         tabIndex={-1}
                         data-value={option.value}>
                         {option.hasPrefix && <Flex className={styles.prefix}>{option.hasPrefix}</Flex>}
-                        <Flex style={{ whiteSpace: 'nowrap' }} direction="column" className={styles.optionText}>
+                        <Flex style={{whiteSpace: 'nowrap'}} direction="column" className={styles.optionText}>
                             <Text
                                 onBackground="neutral-strong"
                                 variant="label-default-s">
@@ -178,5 +187,5 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(({
 
 Dropdown.displayName = 'Dropdown';
 
-export { Dropdown };
-export type { DropdownOptions, DropdownProps };
+export {Dropdown};
+export type {DropdownOptions, DropdownProps};

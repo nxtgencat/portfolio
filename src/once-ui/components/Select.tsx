@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState, useRef, useEffect, forwardRef } from 'react';
+import React, {forwardRef, useEffect, useRef, useState} from 'react';
 import classNames from 'classnames';
-import { DropdownWrapper, Input, InputProps } from '.';
-import { DropdownOptions } from '.';
+import {DropdownOptions, DropdownWrapper, Input, InputProps} from '.';
 import inputStyles from './Input.module.scss';
 
 interface SelectProps extends Omit<InputProps, 'onSelect' | 'value'> {
@@ -16,14 +15,14 @@ interface SelectProps extends Omit<InputProps, 'onSelect' | 'value'> {
 }
 
 const Select = forwardRef<HTMLDivElement, SelectProps>(({
-    options,
-    value,
-    style,
-    onSelect,
-    renderDropdownOptions,
-    renderCustomDropdownContent,
-    ...inputProps
-}, ref) => {
+                                                            options,
+                                                            value,
+                                                            style,
+                                                            onSelect,
+                                                            renderDropdownOptions,
+                                                            renderCustomDropdownContent,
+                                                            ...inputProps
+                                                        }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFilled, setIsFilled] = useState(!!value);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -77,7 +76,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(({
             renderCustomDropdownContent={renderCustomDropdownContent}>
             <Input
                 {...inputProps}
-                style={{ cursor: 'pointer', textOverflow: 'ellipsis', ...style }}
+                style={{cursor: 'pointer', textOverflow: 'ellipsis', ...style}}
                 value={value}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
@@ -95,5 +94,5 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(({
 
 Select.displayName = 'Select';
 
-export { Select };
-export type { SelectProps };
+export {Select};
+export type {SelectProps};

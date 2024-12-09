@@ -1,5 +1,5 @@
-import { getPosts } from '@/app/utils/utils';
-import { Grid } from '@/once-ui/components';
+import {getPosts} from '@/app/utils/utils';
+import {Grid} from '@/once-ui/components';
 import Post from './Post';
 
 interface PostsProps {
@@ -10,11 +10,11 @@ interface PostsProps {
 }
 
 export function Posts({
-    range,
-    columns = '1',
-    locale = 'en',
-    thumbnail = false
-}: PostsProps) {
+                          range,
+                          columns = '1',
+                          locale = 'en',
+                          thumbnail = false
+                      }: PostsProps) {
     let allBlogs = getPosts(['src', 'app', '[locale]', 'blog', 'posts', locale]);
 
     const sortedBlogs = allBlogs.sort((a, b) => {
@@ -23,9 +23,9 @@ export function Posts({
 
     const displayedBlogs = range
         ? sortedBlogs.slice(
-              range[0] - 1,
-              range.length === 2 ? range[1] : sortedBlogs.length 
-          )
+            range[0] - 1,
+            range.length === 2 ? range[1] : sortedBlogs.length
+        )
         : sortedBlogs;
 
     return (

@@ -1,41 +1,41 @@
 'use client';
 
-import React, { ElementType, ComponentPropsWithoutRef } from 'react';
+import React, {ComponentPropsWithoutRef, ElementType} from 'react';
 import classNames from 'classnames';
 
-import { TextProps, CommonProps, SpacingProps } from '../interfaces'
-import { ColorScheme, ColorWeight, TextVariant, SpacingToken } from '../types';
+import {CommonProps, SpacingProps, TextProps} from '../interfaces'
+import {ColorScheme, ColorWeight, SpacingToken, TextVariant} from '../types';
 
 type HeadingProps<T extends ElementType> = TextProps<T> & CommonProps & SpacingProps & ComponentPropsWithoutRef<T>;
 
 const Heading = <T extends ElementType = 'h1'>({
-    as,
-    variant,
-    size,
-    weight,
-    onBackground,
-    onSolid,
-    align,
-    wrap,
-    padding,
-    paddingLeft,
-    paddingRight,
-    paddingTop,
-    paddingBottom,
-    paddingX,
-    paddingY,
-    margin,
-    marginLeft,
-    marginRight,
-    marginTop,
-    marginBottom,
-    marginX,
-    marginY,
-    children,
-    style,
-    className,
-    ...props
-}: HeadingProps<T>) => {
+                                                   as,
+                                                   variant,
+                                                   size,
+                                                   weight,
+                                                   onBackground,
+                                                   onSolid,
+                                                   align,
+                                                   wrap,
+                                                   padding,
+                                                   paddingLeft,
+                                                   paddingRight,
+                                                   paddingTop,
+                                                   paddingBottom,
+                                                   paddingX,
+                                                   paddingY,
+                                                   margin,
+                                                   marginLeft,
+                                                   marginRight,
+                                                   marginTop,
+                                                   marginBottom,
+                                                   marginX,
+                                                   marginY,
+                                                   children,
+                                                   style,
+                                                   className,
+                                                   ...props
+                                               }: HeadingProps<T>) => {
     const Component = as || 'h1';
 
     if (variant && (size || weight)) {
@@ -94,7 +94,7 @@ const Heading = <T extends ElementType = 'h1'>({
     return (
         <Component
             className={combinedClasses}
-            style={{ textAlign: align, textWrap: wrap, ...style }}
+            style={{textAlign: align, textWrap: wrap, ...style}}
             {...props}>
             {children}
         </Component>
@@ -103,4 +103,4 @@ const Heading = <T extends ElementType = 'h1'>({
 
 Heading.displayName = 'Heading';
 
-export { Heading };
+export {Heading};

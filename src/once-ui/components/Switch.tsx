@@ -1,9 +1,9 @@
 'use client';
 
-import React, { forwardRef } from 'react';
+import React, {forwardRef} from 'react';
 import classNames from 'classnames';
 
-import { Flex, InteractiveDetails, InteractiveDetailsProps } from '.';
+import {Flex, InteractiveDetails, InteractiveDetailsProps} from '.';
 import styles from './Switch.module.scss';
 import commonStyles from './SharedInteractiveStyles.module.scss';
 
@@ -20,16 +20,16 @@ interface SwitchProps extends Omit<InteractiveDetailsProps, 'onClick'>, React.In
 }
 
 const Switch: React.FC<SwitchProps> = forwardRef<HTMLInputElement, SwitchProps>(({
-    className,
-    isChecked,
-    reverse = false,
-    onToggle,
-    ariaLabel = 'Toggle switch',
-    disabled,
-    name,
-    value,
-    ...props
-}, ref) => {
+                                                                                     className,
+                                                                                     isChecked,
+                                                                                     reverse = false,
+                                                                                     onToggle,
+                                                                                     ariaLabel = 'Toggle switch',
+                                                                                     disabled,
+                                                                                     name,
+                                                                                     value,
+                                                                                     ...props
+                                                                                 }, ref) => {
     const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
         if (!disabled && (event.key === 'Enter' || event.key === ' ')) {
             event.preventDefault();
@@ -86,7 +86,8 @@ const Switch: React.FC<SwitchProps> = forwardRef<HTMLInputElement, SwitchProps>(
             {props.label && (
                 <InteractiveDetails
                     {...props}
-                    onClick={() => {}}
+                    onClick={() => {
+                    }}
                 />
             )}
         </Flex>
@@ -95,4 +96,4 @@ const Switch: React.FC<SwitchProps> = forwardRef<HTMLInputElement, SwitchProps>(
 
 Switch.displayName = 'Switch';
 
-export { Switch };
+export {Switch};

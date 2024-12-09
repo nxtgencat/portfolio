@@ -1,24 +1,25 @@
 'use client'
 
 import React from 'react';
-import { createPortal } from 'react-dom';
+import {createPortal} from 'react-dom';
 
-import { Flex, Toast } from '.';
+import {Flex, Toast} from '.';
 import styles from './Toaster.module.scss';
 
 interface ToasterProps {
-    toasts: { 
-        id: string; 
-        variant: 'success' | 'danger'; 
-        message: string; 
-        action?: React.ReactNode 
+    toasts: {
+        id: string;
+        variant: 'success' | 'danger';
+        message: string;
+        action?: React.ReactNode
     }[];
     removeToast: (id: string) => void;
 }
 
 const Toaster: React.FC<ToasterProps> = ({
-    toasts,
-    removeToast }) => {
+                                             toasts,
+                                             removeToast
+                                         }) => {
     return createPortal(
         <Flex
             zIndex={11}
@@ -54,4 +55,4 @@ const Toaster: React.FC<ToasterProps> = ({
 
 Toaster.displayName = 'Toaster';
 
-export { Toaster };
+export {Toaster};

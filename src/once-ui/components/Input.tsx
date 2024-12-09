@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, forwardRef, InputHTMLAttributes } from 'react';
+import React, {forwardRef, InputHTMLAttributes, useEffect, useState} from 'react';
 import classNames from 'classnames';
-import { Flex, Text } from '.';
+import {Flex, Text} from '.';
 import styles from './Input.module.scss';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -19,21 +19,21 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({
-    id,
-    label,
-    height = 'm',
-    error,
-    description,
-    radius,
-    className,
-    hasPrefix,
-    hasSuffix,
-    labelAsPlaceholder = false,
-    children,
-    onFocus,
-    onBlur,
-    ...props
-}, ref) => {
+                                                            id,
+                                                            label,
+                                                            height = 'm',
+                                                            error,
+                                                            description,
+                                                            radius,
+                                                            className,
+                                                            hasPrefix,
+                                                            hasSuffix,
+                                                            labelAsPlaceholder = false,
+                                                            children,
+                                                            onFocus,
+                                                            onBlur,
+                                                            ...props
+                                                        }, ref) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFilled, setIsFilled] = useState(!!props.value);
 
@@ -66,10 +66,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
     });
 
     return (
-        <div className={classNames(styles.wrapper, className, { [styles.error]: error })}>
-            <div className={classNames(styles.base, { [styles.s]: height === 's'}, { [styles.m]: height === 'm'})}
-                style={{borderRadius: radius}}>
-                { hasPrefix && (
+        <div className={classNames(styles.wrapper, className, {[styles.error]: error})}>
+            <div className={classNames(styles.base, {[styles.s]: height === 's'}, {[styles.m]: height === 'm'})}
+                 style={{borderRadius: radius}}>
+                {hasPrefix && (
                     <Flex
                         paddingLeft="12"
                         className={styles.prefix}>
@@ -88,7 +88,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
                         aria-describedby={error ? `${id}-error` : undefined}
                         aria-invalid={!!error}
                     />
-                    { !labelAsPlaceholder && (
+                    {!labelAsPlaceholder && (
                         <Text
                             as="label"
                             variant="label-default-m"
@@ -99,13 +99,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
                             {label}
                         </Text>
                     )}
-                    { children && (
+                    {children && (
                         <div className={styles.children}>
                             {children}
                         </div>
                     )}
                 </div>
-                { hasSuffix && (
+                {hasSuffix && (
                     <Flex
                         paddingRight="12"
                         className={styles.suffix}>
@@ -113,7 +113,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
                     </Flex>
                 )}
             </div>
-            { error && (
+            {error && (
                 <Flex paddingX="16">
                     <Text
                         as="span"
@@ -124,7 +124,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
                     </Text>
                 </Flex>
             )}
-            { description && (
+            {description && (
                 <Flex paddingX="16">
                     <Text
                         as="span"
@@ -141,5 +141,5 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
 
 Input.displayName = "Input";
 
-export { Input };
-export type { InputProps };
+export {Input};
+export type {InputProps};

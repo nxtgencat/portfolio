@@ -1,7 +1,7 @@
 'use client';
 
-import React, { forwardRef } from 'react';
-import { Text, Flex, IconButton, IconButtonProps } from '.';
+import React, {forwardRef} from 'react';
+import {Flex, IconButton, IconButtonProps, Text} from '.';
 
 interface InteractiveDetailsProps {
     label?: string;
@@ -13,13 +13,13 @@ interface InteractiveDetailsProps {
 }
 
 const InteractiveDetails: React.FC<InteractiveDetailsProps> = forwardRef<HTMLDivElement, InteractiveDetailsProps>(({
-    label,
-    description,
-    iconButtonProps,
-    onClick,
-    className,
-    id,
-}, ref) => {
+                                                                                                                       label,
+                                                                                                                       description,
+                                                                                                                       iconButtonProps,
+                                                                                                                       onClick,
+                                                                                                                       className,
+                                                                                                                       id,
+                                                                                                                   }, ref) => {
     return (
         <Flex
             ref={ref}
@@ -60,5 +60,5 @@ const InteractiveDetails: React.FC<InteractiveDetailsProps> = forwardRef<HTMLDiv
 
 InteractiveDetails.displayName = 'InteractiveDetails';
 
-export { InteractiveDetails };
-export type { InteractiveDetailsProps };
+export {InteractiveDetails};
+export type {InteractiveDetailsProps};

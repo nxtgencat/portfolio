@@ -3,8 +3,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Flex, DropdownWrapper, DropdownProps, User, UserProps } from '.';
-import { DropdownOptions } from '.';
+import {DropdownOptions, DropdownProps, DropdownWrapper, Flex, User, UserProps} from '.';
 import styles from './UserMenu.module.scss'
 
 interface UserMenuProps extends UserProps {
@@ -16,13 +15,13 @@ interface UserMenuProps extends UserProps {
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({
-    selected = false,
-    dropdownOptions = [],
-    dropdownAlignment = 'left',
-    dropdownProps,
-    className,
-    ...userProps
-}) => {
+                                               selected = false,
+                                               dropdownOptions = [],
+                                               dropdownAlignment = 'left',
+                                               dropdownProps,
+                                               className,
+                                               ...userProps
+                                           }) => {
     return (
         <DropdownWrapper
             dropdownOptions={dropdownOptions}
@@ -33,7 +32,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                 radius="full"
                 border={selected ? 'neutral-medium' : 'transparent'}
                 background={selected ? 'neutral-strong' : 'transparent'}
-                style={{ cursor: 'pointer' }}
+                style={{cursor: 'pointer'}}
                 className={classNames(className || '', selected ? styles.selected : '', styles.wrapper)}>
                 <User {...userProps} />
             </Flex>
@@ -43,4 +42,4 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
 UserMenu.displayName = 'UserMenu';
 
-export { UserMenu };
+export {UserMenu};

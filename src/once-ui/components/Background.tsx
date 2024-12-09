@@ -1,7 +1,7 @@
 'use client';
 
-import React, { CSSProperties, forwardRef, useEffect, useRef, useState } from 'react';
-import { SpacingToken } from '../types';
+import React, {CSSProperties, forwardRef, useEffect, useRef, useState} from 'react';
+import {SpacingToken} from '../types';
 
 function setRef<T>(ref: React.Ref<T> | undefined, value: T | null) {
     if (typeof ref === 'function') {
@@ -52,19 +52,19 @@ export interface LinesProps {
 
 const Background = forwardRef<HTMLDivElement, BackgroundProps>(
     ({
-        position = 'fixed',
-        gradient = {},
-        dots = {},
-        lines = {},
-        mask = 'none',
-        className,
-        style
-    }, forwardedRef) => {
+         position = 'fixed',
+         gradient = {},
+         dots = {},
+         lines = {},
+         mask = 'none',
+         className,
+         style
+     }, forwardedRef) => {
         const dotsColor = dots.color ?? 'brand-on-background-weak';
         const dotsSize = dots.size ?? '16';
 
-        const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-        const [smoothPosition, setSmoothPosition] = useState({ x: 0, y: 0 });
+        const [cursorPosition, setCursorPosition] = useState({x: 0, y: 0});
+        const [smoothPosition, setSmoothPosition] = useState({x: 0, y: 0});
         const maskSize = 1200;
         const backgroundRef = useRef<HTMLDivElement>(null);
 
@@ -130,7 +130,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
         const maskStyle = (): CSSProperties => {
             switch (mask) {
                 case 'none':
-                    return { maskImage: 'none' };
+                    return {maskImage: 'none'};
                 case 'cursor':
                     return {
                         maskImage: `radial-gradient(circle ${maskSize / 2}px at ${smoothPosition.x}px ${smoothPosition.y}px, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%)`,
@@ -207,4 +207,4 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
 
 Background.displayName = 'Background';
 
-export { Background };
+export {Background};

@@ -1,7 +1,7 @@
 'use client';
 
-import React, {  useRef, forwardRef } from 'react';
-import { Flex, Input, InputProps, IconButton, Icon } from '.';
+import React, {forwardRef, useRef} from 'react';
+import {Flex, Icon, IconButton, Input, InputProps} from '.';
 
 interface ColorInputProps extends Omit<InputProps, 'onChange' | 'value'> {
     value: string;
@@ -9,12 +9,12 @@ interface ColorInputProps extends Omit<InputProps, 'onChange' | 'value'> {
 }
 
 const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(({
-    label,
-    id,
-    value,
-    onChange,
-    ...props
-}, ref) => {
+                                                                      label,
+                                                                      id,
+                                                                      value,
+                                                                      onChange,
+                                                                      ...props
+                                                                  }, ref) => {
     const colorInputRef = useRef<HTMLInputElement>(null);
 
     const handleHexClick = () => {
@@ -24,12 +24,12 @@ const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(({
     };
 
     const handleReset = () => {
-        onChange({ target: { value: '' } } as React.ChangeEvent<HTMLInputElement>);
+        onChange({target: {value: ''}} as React.ChangeEvent<HTMLInputElement>);
     };
 
     return (
         <Input
-            style={{ cursor: 'pointer'}}
+            style={{cursor: 'pointer'}}
             id={id}
             ref={colorInputRef}
             label={label}
@@ -80,14 +80,14 @@ const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(({
                         width: 'calc(100% - var(--static-space-48))'
                     }}>
                     <Flex onClick={handleHexClick}
-                        fillWidth
-                        style={{
-                            opacity: value ? '1' : '0',
-                            transition: 'opacity 0.2s ease-in-out'
-                        }}>
+                          fillWidth
+                          style={{
+                              opacity: value ? '1' : '0',
+                              transition: 'opacity 0.2s ease-in-out'
+                          }}>
                         {value}
                     </Flex>
-                    { value && (
+                    {value && (
                         <IconButton
                             onClick={handleReset}
                             variant="secondary"
@@ -109,4 +109,4 @@ const ColorInput = forwardRef<HTMLInputElement, ColorInputProps>(({
 
 ColorInput.displayName = 'ColorInput';
 
-export { ColorInput };
+export {ColorInput};

@@ -1,41 +1,41 @@
 'use client';
 
-import React, { ElementType, ComponentPropsWithoutRef } from 'react';
+import React, {ComponentPropsWithoutRef, ElementType} from 'react';
 import classNames from 'classnames';
 
-import { TextProps, CommonProps, SpacingProps } from '../interfaces'
-import { ColorScheme, ColorWeight, TextVariant, SpacingToken } from '../types';
+import {CommonProps, SpacingProps, TextProps} from '../interfaces'
+import {ColorScheme, ColorWeight, SpacingToken, TextVariant} from '../types';
 
 type TypeProps<T extends ElementType> = TextProps<T> & CommonProps & SpacingProps & ComponentPropsWithoutRef<T>;
 
 const Text = <T extends ElementType = 'span'>({
-    as,
-    variant,
-    size,
-    weight,
-    onBackground,
-    onSolid,
-    align,
-    wrap,
-    padding,
-    paddingLeft,
-    paddingRight,
-    paddingTop,
-    paddingBottom,
-    paddingX,
-    paddingY,
-    margin,
-    marginLeft,
-    marginRight,
-    marginTop,
-    marginBottom,
-    marginX,
-    marginY,
-    children,
-    style,
-    className,
-    ...props
-}: TypeProps<T>) => {
+                                                  as,
+                                                  variant,
+                                                  size,
+                                                  weight,
+                                                  onBackground,
+                                                  onSolid,
+                                                  align,
+                                                  wrap,
+                                                  padding,
+                                                  paddingLeft,
+                                                  paddingRight,
+                                                  paddingTop,
+                                                  paddingBottom,
+                                                  paddingX,
+                                                  paddingY,
+                                                  margin,
+                                                  marginLeft,
+                                                  marginRight,
+                                                  marginTop,
+                                                  marginBottom,
+                                                  marginX,
+                                                  marginY,
+                                                  children,
+                                                  style,
+                                                  className,
+                                                  ...props
+                                              }: TypeProps<T>) => {
     const Component = as || 'span';
 
     if (variant && (size || weight)) {
@@ -94,7 +94,7 @@ const Text = <T extends ElementType = 'span'>({
     return (
         <Component
             className={combinedClasses}
-            style={{ textAlign: align, textWrap: wrap, ...style }}
+            style={{textAlign: align, textWrap: wrap, ...style}}
             {...props}>
             {children}
         </Component>
@@ -103,4 +103,4 @@ const Text = <T extends ElementType = 'span'>({
 
 Text.displayName = 'Text';
 
-export { Text };
+export {Text};

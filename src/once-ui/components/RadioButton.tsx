@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 import classNames from 'classnames';
-import { Flex, InteractiveDetails, InteractiveDetailsProps } from '.';
+import {Flex, InteractiveDetails, InteractiveDetailsProps} from '.';
 import styles from './SharedInteractiveStyles.module.scss';
 
 interface RadioButtonProps extends Omit<InteractiveDetailsProps, 'onClick'>, React.InputHTMLAttributes<HTMLInputElement> {
@@ -18,15 +18,15 @@ interface RadioButtonProps extends Omit<InteractiveDetailsProps, 'onClick'>, Rea
 const generateId = () => `radio-${Math.random().toString(36).substring(2, 9)}`;
 
 const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLInputElement, RadioButtonProps>(({
-    style,
-    className,
-    isChecked: controlledIsChecked,
-    name,
-    value,
-    onToggle,
-    disabled,
-    ...props
-}, ref) => {
+                                                                                                    style,
+                                                                                                    className,
+                                                                                                    isChecked: controlledIsChecked,
+                                                                                                    name,
+                                                                                                    value,
+                                                                                                    onToggle,
+                                                                                                    disabled,
+                                                                                                    ...props
+                                                                                                }, ref) => {
     const [isChecked, setIsChecked] = useState(controlledIsChecked || false);
     const [radioId] = useState(generateId());
 
@@ -62,7 +62,7 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLInputElement, Rad
                 classNames(
                     styles.container,
                     className,
-                    { [styles.disabled]: disabled }
+                    {[styles.disabled]: disabled}
                 )
             }
             style={style}>
@@ -97,7 +97,7 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLInputElement, Rad
                 {(controlledIsChecked !== undefined ? controlledIsChecked : isChecked) && (
                     <Flex
                         style={{backgroundColor: 'var(--neutral-on-solid-strong)'}}
-                        radius="full" width="12" height="12" className={styles.icon} />
+                        radius="full" width="12" height="12" className={styles.icon}/>
                 )}
             </Flex>
             {props.label && (
@@ -113,5 +113,5 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<HTMLInputElement, Rad
 
 RadioButton.displayName = 'RadioButton';
 
-export { RadioButton };
-export type { RadioButtonProps };
+export {RadioButton};
+export type {RadioButtonProps};

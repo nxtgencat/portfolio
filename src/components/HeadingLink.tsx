@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useCallback } from 'react';
-import { Heading, Flex, IconButton, Toaster } from '@/once-ui/components';
+import React, {useCallback, useState} from 'react';
+import {Flex, Heading, IconButton, Toaster} from '@/once-ui/components';
 
 import styles from '@/components/HeadingLink.module.scss';
 
@@ -13,11 +13,11 @@ interface HeadingLinkProps {
 }
 
 export const HeadingLink: React.FC<HeadingLinkProps> = ({
-    id,
-    level,
-    children,
-    style
-}) => {
+                                                            id,
+                                                            level,
+                                                            children,
+                                                            style
+                                                        }) => {
     const [toasts, setToasts] = useState<
         { id: string; variant: 'success' | 'danger'; message: string; action?: React.ReactNode }[]
     >([]);
@@ -25,7 +25,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({
     const addToast = useCallback(
         (variant: 'success' | 'danger', message: string, action?: React.ReactNode) => {
             const id = `${new Date().getTime()}`;
-            setToasts((prevToasts) => [...prevToasts, { id, variant, message, action }]);
+            setToasts((prevToasts) => [...prevToasts, {id, variant, message, action}]);
         },
         []
     );
@@ -80,7 +80,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({
                     icon="openLink"
                     variant="ghost"
                     tooltip="Copy"
-                    tooltipPosition="right" />
+                    tooltipPosition="right"/>
             </Flex>
         </Flex>
     );
